@@ -11,29 +11,5 @@
   "version": "0.1.0",
   "official": true,
   "experience": "Beginner",
-  "option_groups": [
-    {
-      "id": "UI_CONFIG_OPTION_GROUP",
-      "label": "UI Option",
-      "label_plural": "UI Options",
-      "identifier": "ui_option",
-      "identifier_plural": "ui_options",
-      "class_name": "UIOption",
-      "class_name_plural": "UIOptions",
-      "description": "Tweak the user interface for each Model",
-      "type": "OPTION_GROUP_TYPE_MODEL_OPTION",
-      "more_info_url": null,
-      "attributes": [
-        {
-          "label": "FontAwesome Icon",
-          "identifier": "fontawesome_icon",
-          "type": "STRING",
-          "help": "Specify a FontAwesome 4.7 icon to be used in the UI for this model.",
-          "default_value": "fa fa-user",
-          "more_info_url": "https://fontawesome.com/v4.7.0/icons/",
-          "previewTemplate": "<span><i :class='\"ml-2 mr-1 \" + model.value'></i>{{ schema.label_plural }}</span>"
-        }
-      ]
-    }
-  ]
+  "option_groups": []
 }
