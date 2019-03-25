@@ -1,5 +1,5 @@
 <template>
-  <table class="table">
+  <table class="table is-fullwidth is-bordered is-striped">
     <thead>
       <%_ related_schema.attributes.forEach((attr) => { _%>
       <th><%= attr.label %></th>
@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     model () {
-      return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(s => s.id %> === this.id)
+      return this.$store.getters['<%= relation.schema.identifier %>/collection/items'].find(s => s.id %> === this.id)
     },
     <%_ related_schema.relations.forEach((rel, index) => { _%>
     <%_ if ([RELATION_TYPE_HAS_ONE, RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>

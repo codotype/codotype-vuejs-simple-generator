@@ -4,7 +4,7 @@
     <<%= schema.class_name %>Detail :model="model" />
 
     <%_ if (schema.relations.length || schema.reverse_relations.length) { _%>
-    <b-tabs>
+    <b-tabs type='is-toggle'>
 
       <%_ schema.relations.forEach((rel) => { _%>
       <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
@@ -22,7 +22,7 @@
 
       <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
       <b-tab-item label="<%= rel.alias.label_plural %>">
-      <!-- <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" /> -->
+        <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
       </b-tab-item>
       <%_ } _%>
       <%_ }) _%>
@@ -54,7 +54,7 @@ import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.
 // TODO - implement reverse relations
 <%_ schema.reverse_relations.forEach((rel) => { _%>
 <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
-// import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name_plural %>List'
+import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name_plural %>List'
 <%_ } _%>
 <%_ }) _%>
 
@@ -79,7 +79,7 @@ export default {
     <%_ }) _%>
     <%_ schema.reverse_relations.forEach((rel) => { _%>
     <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
-    // Related<%= rel.alias.class_name_plural %>List,
+    Related<%= rel.alias.class_name_plural %>List,
     <%_ } _%>
     <%_ }) _%>
     <%= schema.class_name %>Detail

@@ -1,6 +1,6 @@
 
 <template>
-  <table class="table table-hover">
+  <table class="table is-fullwidth is-bordered is-striped">
 
     <!-- Table Header -->
     <thead>
@@ -15,6 +15,7 @@
       <%_ } _%>
       <%_ }) _%>
       <%_ related_schema.relations.forEach((r) => { _%>
+      <%_ if (relation.id === r.id) { return } _%>
       <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(r.type)) {_%>
       <th><%= r.alias.label %></th>
       <%_ } _%>
@@ -42,7 +43,7 @@
         <td></td>
       </tr>
 
-      <Related<%= rel.alias.class_name %>ListItem v-for="m in collection" :model="m" :key="m.id" />
+      <Related<%= relation.alias.class_name %>ListItem v-for="m in collection" :model="m" :key="m.id" />
 
     </tbody>
 
@@ -50,7 +51,13 @@
 </template>
 
 <script>
-import Related<%= rel.alias.class_name %>ListItem from './Related<%= rel.alias.class_name %>ListItem'
+// TODO - this component must be split up for relations and reverse relations
+// TODO - this component must be split up for relations and reverse relations
+// TODO - this component must be split up for relations and reverse relations
+// TODO - this component must be split up for relations and reverse relations
+// TODO - this component must be split up for relations and reverse relations
+// TODO - this component must be split up for relations and reverse relations
+import Related<%= relation.alias.class_name %>ListItem from './Related<%= relation.alias.class_name %>ListItem'
 export default {
   props: {
     <%= schema.identifier %>_id: {
@@ -59,20 +66,21 @@ export default {
     }
   },
   components: {
-    Related<%= rel.alias.class_name %>ListItem
+    Related<%= relation.alias.class_name %>ListItem
   },
   computed: {
-    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
+    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(relation.type)) { _%>
     model () {
-      return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
+      return this.$store.getters['<%= relation.schema.identifier %>/collection/items'].find(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
     },
-    <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
+    <%_ } _%>
+    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_MANY].includes(relation.type)) { _%>
     collection () {
-      return this.$store.getters['<%= rel.schema.identifier %>/collection/items']
+      return this.$store.getters['<%= relation.schema.identifier %>/collection/items']
     },
-    <%_ } else if (rel.type === 'REF_BELONGS_TO') { _%>
+    <%_ } else if (relation.type === 'REF_BELONGS_TO') { _%>
     collection () {
-      return this.$store.getters['<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection']
+      return this.$store.getters['<%= schema.identifier %>/related<%= relation.alias.class_name_plural %>/collection']
     },
     <%_ } _%>
   }

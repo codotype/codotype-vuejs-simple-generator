@@ -21,6 +21,7 @@
     <%_ } _%>
   <%_ }) _%>
   <%_ related_schema.relations.forEach((rel) => { _%>
+  <%_ if (relation.id === rel.id) { return } _%>
   <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
     <td v-if="model.<%= rel.alias.identifier %>_id">
       <router-link :to="'/<%= rel.schema.identifier_plural %>/' + model.<%= rel.alias.identifier + '_id' %>">
