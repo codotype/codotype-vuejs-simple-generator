@@ -30,6 +30,12 @@ export default {
   metaInfo: {
     title: '<%= schema.label %> - Edit'
   },
+  props: {
+    id: {
+      required: true,
+      type: String
+    }
+  },
   components: {
     <%= schema.class_name %>Form
   },
@@ -37,7 +43,8 @@ export default {
     this.resetForm()
   },
   data () {
-    const model = this.$store.getters['<%= schema.identifier %>/collection/newModel']
+    const selected = this.$store.getters['<%= schema.identifier %>/collection/items'].find(m => m.id === this.id)
+    const model = Object.assign({}, selected)
     return { model }
   },
   methods: {
