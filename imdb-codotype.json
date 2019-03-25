@@ -1,0 +1,220 @@
+{
+  "label": "Imdb",
+  "identifier": "imdb",
+  "schemas": [
+    {
+      "id": "USER_SCHEMA_ID",
+      "order": 0,
+      "label": "User",
+      "label_plural": "Users",
+      "identifier": "user",
+      "identifier_plural": "users",
+      "class_name": "User",
+      "class_name_plural": "Users",
+      "attributes": [
+        {
+          "id": "USER_EMAIL_ATTRIBUTE",
+          "order": 0,
+          "label": "E-Mail",
+          "identifier": "email",
+          "help": "The E-Mail address associated with this User",
+          "required": true,
+          "unique": true,
+          "datatype": "STRING",
+          "datatypeOptions": {},
+          "locked": true
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "0.8779873367144082",
+      "order": 0,
+      "label": "User Rating",
+      "label_plural": "User Ratings",
+      "identifier": "user_rating",
+      "identifier_plural": "user_ratings",
+      "class_name": "UserRating",
+      "class_name_plural": "UserRatings",
+      "relations": [
+        {
+          "id": "0.6472937831383605",
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "related_schema_id": "USER_SCHEMA_ID",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": "",
+          "attributes": [],
+          "relations": [],
+          "schema_id": "0.8779873367144082"
+        },
+        {
+          "id": "0.5870560868319303",
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "related_schema_id": "0.41883558842481916",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": "",
+          "attributes": [],
+          "relations": [],
+          "schema_id": "0.8779873367144082"
+        }
+      ],
+      "attributes": [
+        {
+          "id": "0.6990315854865059",
+          "order": 0,
+          "label": "Score",
+          "identifier": "score",
+          "help": "",
+          "required": true,
+          "unique": false,
+          "datatype": "INTEGER",
+          "datatypeOptions": {
+            "default": 5
+          },
+          "attributes": [],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "id": "0.41883558842481916",
+      "order": 0,
+      "label": "Movie",
+      "label_plural": "Movies",
+      "identifier": "movie",
+      "identifier_plural": "movies",
+      "class_name": "Movie",
+      "class_name_plural": "Movies",
+      "relations": [
+        {
+          "id": "0.6659086106593484",
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "related_schema_id": "0.013728952237533454",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": "",
+          "attributes": [],
+          "relations": [],
+          "schema_id": "0.41883558842481916"
+        },
+        {
+          "id": "0.505886675358985",
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "schema_id": "0.41883558842481916",
+          "related_schema_id": "0.8026890432801874",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": ""
+        }
+      ],
+      "attributes": [
+        {
+          "id": "0.3403836399912703",
+          "order": 0,
+          "label": "Name",
+          "identifier": "name",
+          "help": "",
+          "required": false,
+          "unique": false,
+          "datatype": "STRING",
+          "datatypeOptions": {
+            "default": "Star Wars"
+          },
+          "attributes": [],
+          "relations": []
+        },
+        {
+          "id": "0.8326447617605981",
+          "order": 0,
+          "label": "Year",
+          "identifier": "year",
+          "help": "",
+          "required": true,
+          "unique": false,
+          "datatype": "FLOAT",
+          "datatypeOptions": {
+            "default": 1970
+          },
+          "attributes": [],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "id": "0.013728952237533454",
+      "order": 0,
+      "label": "Director",
+      "label_plural": "Directors",
+      "identifier": "director",
+      "identifier_plural": "directors",
+      "class_name": "Director",
+      "class_name_plural": "Directors",
+      "relations": [
+        {
+          "id": "0.9763635499386705",
+          "order": 0,
+          "type": "HAS_MANY",
+          "required": false,
+          "schema_id": "0.013728952237533454",
+          "related_schema_id": "0.8026890432801874",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": ""
+        }
+      ],
+      "attributes": [
+        {
+          "id": "0.8624718735947665",
+          "order": 0,
+          "label": "Name",
+          "identifier": "name",
+          "help": "",
+          "required": true,
+          "unique": false,
+          "datatype": "STRING",
+          "datatypeOptions": {},
+          "attributes": [],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "id": "0.8026890432801874",
+      "order": 0,
+      "label": "Genre",
+      "label_plural": "Genres",
+      "identifier": "genre",
+      "identifier_plural": "genres",
+      "class_name": "Genre",
+      "class_name_plural": "Genres",
+      "attributes": [
+        {
+          "id": "0.0023909040751481925",
+          "order": 0,
+          "label": "Label",
+          "identifier": "label",
+          "help": "",
+          "required": false,
+          "unique": false,
+          "datatype": "STRING",
+          "default_value": null,
+          "datatypeOptions": {}
+        }
+      ],
+      "relations": [],
+      "reverse_relations": [],
+      "camel_case": "genre",
+      "camel_case_plural": "genres"
+    }
+  ]
+}
