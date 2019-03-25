@@ -10,7 +10,7 @@
 
       <hr>
 
-      <div class="buttons">
+      <div class="buttons is-right">
         <button class="button is-primary" @click="updateModel()">
           <i class="fa fa-fw fa-plus"></i>
           Update <%= schema.label %>

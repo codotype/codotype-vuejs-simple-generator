@@ -12,7 +12,7 @@
         </div>
 
         <div class="column">
-          <div class="buttons">
+          <div class="buttons is-right">
             <router-link class='button is-warning' :to=" '/<%= schema.identifier_plural %>/' + model.id + '/edit' ">
               <i class="far fa-fw fa-edit"></i>
               Edit

@@ -40,7 +40,7 @@
   <%_ }) _%>
 
     <td class='has-text-right'>
-      <div class="buttons">
+      <div class="buttons is-right">
 
         <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}`" class="button is-small is-primary">
           <i class="fa fa-fw fa-eye"></i>

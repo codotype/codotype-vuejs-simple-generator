@@ -39,7 +39,7 @@
   <%_ }) _%>
 
     <td>
-      <div class="buttons">
+      <div class="buttons is-right">
 
         <router-link
           :to="`/<%= schema.identifier_plural %>/${model.id}`"
