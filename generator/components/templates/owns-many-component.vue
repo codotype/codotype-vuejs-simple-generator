@@ -68,7 +68,7 @@ export default {
     },
     <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
     collection () {
-      return this.$store.getters['<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection']
+      return this.$store.getters['<%= rel.schema.identifier %>/collection/items']
     },
     <%_ } else if (rel.type === 'REF_BELONGS_TO') { _%>
     collection () {

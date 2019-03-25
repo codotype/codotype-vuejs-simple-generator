@@ -9,7 +9,7 @@
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
     <Related<%= rel.alias.class_name %>Detail :id="model.<%= rel.alias.identifier %>_id"/>
     <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-    <!-- <Related<%= rel.alias.class_name_plural %>List/> -->
+    <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
     <%_ } _%>
     <%_ }) _%>
 
@@ -36,7 +36,7 @@ import <%= schema.class_name %>Detail from '@/modules/<%= schema.identifier %>/c
 <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
 import Related<%= rel.alias.class_name %>Detail from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name %>Detail'
 <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-// import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name_plural %>List'
+import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name_plural %>List'
 <%_ } _%>
 <%_ }) _%>
 
@@ -64,7 +64,7 @@ export default {
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
     Related<%= rel.alias.class_name %>Detail,
     <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-    // Related<%= rel.alias.class_name_plural %>List,
+    Related<%= rel.alias.class_name_plural %>List,
     <%_ } _%>
     <%_ }) _%>
     <%_ schema.reverse_relations.forEach((rel) => { _%>

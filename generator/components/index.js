@@ -54,14 +54,19 @@ module.exports = {
           this.destinationPath(moduleComponentsDest + 'Related' + rel.alias.class_name + 'Detail.vue'),
           { schema, related_schema, rel }
         )
+      } else if (rel.type === 'HAS_MANY') {
+        await this.copyTemplate(
+          this.templatePath('owns-many-component.vue'),
+          this.destinationPath(moduleComponentsDest + 'Related' + rel.alias.class_name_plural + 'List.vue'), // TODO - RENAME THIS
+          { schema, related_schema, rel }
+        )
+
+        await this.copyTemplate(
+          this.templatePath('owns-many-list-item-component.vue'),
+          this.destinationPath(moduleComponentsDest + 'Related' + rel.alias.class_name + 'ListItem.vue'), // TODO - RENAME THIS
+          { schema, related_schema, rel }
+        )
       }
-      // } else if (rel.type === 'HAS_MANY') {
-      //   await this.copyTemplate(
-      //     this.templatePath('owns-many-component.vue'),
-      //     this.destinationPath(moduleComponentsDest + 'Related' + rel.alias.class_name_plural + 'List.vue'), // TODO - RENAME THIS
-      //     { schema, related_schema, rel }
-      //   )
-      // }
 
     }
 
