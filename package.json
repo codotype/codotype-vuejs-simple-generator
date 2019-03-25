@@ -1,0 +1,15 @@
+{
+  "name": "@codotype/codotype-vuejs-simple-generator",
+  "version": "0.1.0",
+  "description": "A Codotype generator Vue.js, Vuex, Axios, &amp; Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Alexander Schwartzberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codotype/codotype-vuejs-simple-generator/issues"
+  },
+  "homepage": "https://github.com/codotype/codotype-vuejs-simple-generator#readme"
+}
