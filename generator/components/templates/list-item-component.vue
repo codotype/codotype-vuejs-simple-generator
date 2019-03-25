@@ -37,8 +37,9 @@
     </td>
   <%_ } _%>
   <%_ }) _%>
-    <!-- Edit <%= schema.label %>-->
-    <td class='text-right'>
+
+    <td>
+      <div class="buttons">
 
         <router-link
           :to="`/<%= schema.identifier_plural %>/${model.id}`"
@@ -60,7 +61,10 @@
           <i class="far fa-fw fa-trash-alt"></i>
           Delete
         </a>
+
+      </div>
     </td>
+
   </tr>
 </template>
 

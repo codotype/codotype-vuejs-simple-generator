@@ -4,6 +4,8 @@
     <<%= schema.class_name %>Detail :model="model" />
 
     <%_ if (schema.relations.length || schema.reverse_relations.length) { _%>
+    <hr>
+
     <b-tabs type='is-toggle'>
 
       <%_ schema.relations.forEach((rel) => { _%>
@@ -27,10 +29,8 @@
       <%_ } _%>
       <%_ }) _%>
 
-
     </b-tabs>
     <%_ } _%>
-
 
   </section>
 </template>

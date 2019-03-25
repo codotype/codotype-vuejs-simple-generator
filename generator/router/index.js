@@ -35,7 +35,7 @@ module.exports = {
 
     await this.copyTemplate(
       this.templatePath('router.js'),
-      this.destinationPath('src/routers/index.js'),
+      this.destinationPath('src/router.js'),
       {
         routeImports: routeImports.join("\n"),
         routeModules: routeModules.join(",\n    ")
@@ -48,7 +48,7 @@ module.exports = {
       const schema = blueprint.schemas[i]
 
       // Isolates API Actions metadata
-      // src/routers/resource.js
+      // src/modules/module/router.js
       await this.copyTemplate(
         this.templatePath('module-router.js'),
         this.destinationPath('src/modules/' + schema.identifier + '/router.js'),

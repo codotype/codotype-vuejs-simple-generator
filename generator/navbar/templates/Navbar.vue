@@ -1,67 +1,48 @@
 <template>
-  <!--<section class="hero app-navbar is-bold">
-    <div class="hero-head">-->
-      <header class="navbar is-bold">
-        <div class="container">
-        <div class="navbar-brand">
-          <router-link to="/" class="navbar-item">
-            <i class="fa fa-cubes fa-2x fa-fw"></i><%= blueprint.label %>
-          </router-link>
-          <a class="navbar-item is-hidden-desktop" href="https://github.com/ndro/vue-webpack-buefy" target="_blank">
-            <b-icon pack="fa" icon="github" type="is-black"></b-icon>
-          </a>
-          <div class="navbar-burger burger" data-target="navbarDropdown">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+  <header class="navbar is-bold">
+    <div class="container">
+
+      <div class="navbar-brand">
+        <router-link to="/" class="navbar-item">
+          <i class="fa fa-cubes fa-2x fa-fw"></i><%= blueprint.label %>
+        </router-link>
+        <a class="navbar-item is-hidden-desktop" href="https://github.com/ndro/vue-webpack-buefy" target="_blank">
+          <b-icon pack="fa" icon="github" type="is-black"></b-icon>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navbarDropdown">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </div>
 
-        <div id="navbarDropdown" class="navbar-menu">
-          <div class="navbar-start">
+      <div id="navbarDropdown" class="navbar-menu">
+        <div class="navbar-start">
 
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="#">
-                Menu
-              </a>
-              <div class="navbar-dropdown is-boxed">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#">
+              Menu
+            </a>
+            <div class="navbar-dropdown is-boxed">
 
-                <%_ headerLinks.forEach((link) => { _%>
-                <router-link
-                  to="<%= link.href %>"
-                  class="navbar-item"
-                >
-                  <%= link.text %>
-                </router-link>
-                <%_ }) _%>
+              <%_ headerLinks.forEach((link) => { _%>
+              <router-link
+                to="<%= link.href %>"
+                class="navbar-item"
+              >
+                <%= link.text %>
+              </router-link>
+              <%_ }) _%>
 
-              </div>
-            </div>
-
-          </div>
-
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <a class="button is-primary is-outlined" href="#">
-                    <span>Button</span>
-                  </a>
-                </p>
-                <p class="control">
-                  <router-link to="/auth/login">
-                    <b-icon pack="fa" icon="user"></b-icon>
-                    <span>Login</span>
-                  </router-link>
-                </p>
-              </div>
             </div>
           </div>
+
         </div>
-        </div>
-      </header>
-    <!--</div>
-  </section>-->
+      </div>
+
+    </div>
+  </header>
 </template>
 
 

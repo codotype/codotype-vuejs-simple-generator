@@ -1,30 +1,34 @@
 <template>
-  <div class="card mb-3">
-    <div class="card-body">
+  <div class="card">
+    <div class="card-content">
 
-      <div class='row'>
-        <div class="col-sm-8">
-          <h2>
+      <div class="columns">
+
+        <div class="column is-9">
+          <h1 class="title">
             <i class="fa fa-cube"></i>
             <%= schema.label %> Detail
-          </h2>
+          </h1>
         </div>
-        <div class="col-sm-4 text-right">
 
-          <router-link class='button is-warning' :to=" '/<%= schema.identifier_plural %>/' + model.id + '/edit' ">
-            <i class="far fa-fw fa-edit"></i>
-            Edit
-          </router-link>
+        <div class="column">
+          <div class="buttons">
+            <router-link class='button is-warning' :to=" '/<%= schema.identifier_plural %>/' + model.id + '/edit' ">
+              <i class="far fa-fw fa-edit"></i>
+              Edit
+            </router-link>
 
-          <button class='button is-danger'>
-            <i class="far fa-fw fa-trash-alt"></i>
-            Delete
-          </button>
+            <button class='button is-danger'>
+              <i class="far fa-fw fa-trash-alt"></i>
+              Delete
+            </button>
 
+          </div>
         </div>
+
       </div>
 
-      <table class="table">
+      <table class="table is-fullwidth is-bordered is-striped">
 
         <!-- Table Header -->
         <tbody>

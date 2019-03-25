@@ -8,5 +8,6 @@ module.exports = {
     await this.composeWith('./router')
     await this.composeWith('./pages')
     await this.composeWith('./components')
+    await this.composeWith('./relational-components')
   }
 }

@@ -38,30 +38,23 @@
     </td>
   <%_ } _%>
   <%_ }) _%>
-    <!-- Edit <%= related_schema.label %>-->
-    <td class='text-right'>
 
-        <router-link
-          :to="`/<%= related_schema.identifier_plural %>/${model.id}`"
-          class="button is-small is-primary"
-        >
+    <td class='has-text-right'>
+      <div class="buttons">
+
+        <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}`" class="button is-small is-primary">
           <i class="fa fa-fw fa-eye"></i>
           View
         </router-link>
 
-        <router-link
-          :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`"
-          class="button is-small is-warning"
-        >
+        <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`" class="button is-small is-warning">
           <i class="far fa-fw fa-edit"></i>
           Edit
         </router-link>
 
-        <a class="button is-small is-danger">
-          <i class="far fa-fw fa-trash-alt"></i>
-          Delete
-        </a>
+      </div>
     </td>
+
   </tr>
 </template>
 
