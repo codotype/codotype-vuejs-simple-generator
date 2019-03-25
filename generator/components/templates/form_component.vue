@@ -1,23 +1,14 @@
 <template>
-  <div class='row'>
+  <div class='columns'>
   <%_ schema.attributes.forEach((attr) => { _%>
-    <div class='col-lg-6'>
+    <div class='column'>
 
       <b-field
         id="fieldset-<%= attr.identifier %>"
+        label="<%= schema.label %>"
+        message="<%= attr.help %>"
       >
-        <label class='mb-0' for="<%= attr.identifier %>-input"><%= attr.label %></label>
-        <%_ if (attr.required) { _%>
-        <span class='text-danger'>*</span>
-        <%_ } _%>
-
-        <%_ if (attr.help) { _%>
-        <small class='text-muted d-block'>
-          <%= attr.help %>
-        </small>
-        <%_ } _%>
-
-        <!-- <b-input id="<%= attr.identifier %>-input" :state="state" v-model="name" trim /> -->
+      <!-- <b-input id="<%= attr.identifier %>-input" :state="state" v-model="name" trim /> -->
 
       <%_ if (attr.datatype === DATATYPE_BOOLEAN) { _%>
         <b-form-checkbox v-model="model.<%=attr.identifier%>"
@@ -78,12 +69,12 @@
     <%_ }) _%>
     <%_ schema.relations.forEach((rel) => { _%>
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE, RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-    <div class="col-lg-6">
-      <div class="form-group">
-        <label class='mb-0'>
-          <%= rel.alias.label %>
-          <%_ if (rel.required) { %><span class='text-danger'>*</span><% } _%>
-        </label>
+    <div class="column">
+      <b-field
+        id="fieldset-<%= rel.alias.identifier %>"
+        label="<%= rel.alias.label %>"
+        message="The related <%= rel.alias.label %>"
+      >
         <%_ if (rel.type === RELATION_TYPE_BELONGS_TO) { _%>
         <b-select
           placeholder="<%= rel.alias.label %>"
@@ -131,7 +122,7 @@
           </option>
         </b-select>
       <%_ } _%>
-      </div>
+      </b-field>
     </div>
 
     <%_ } _%>
@@ -150,13 +141,6 @@ export default {
       required: true
     }
   },
-  // created () {
-  //   // <%_ schema.relations.forEach((rel) => { _%>
-  //   // <%_ if (rel.type !== 'REF_BELONGS_TO') { _%>
-  //   // this.$store.dispatch('<%= rel.schema.identifier %>/collection/fetch')
-  //   // <%_ } _%>
-  //   // <%_ }) _%>
-  // },
   computed: {
     <%_ schema.relations.forEach((rel, index) => { _%>
     <%= rel.alias.identifier_plural %> () {

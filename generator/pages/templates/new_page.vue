@@ -1,22 +1,28 @@
 <template>
   <section class="section">
+    <div class="container is-fluid">
 
-    <h2><%= schema.label %> - New</h2>
+      <h2 class='title'><%= schema.label %> - New</h2>
 
-    <hr>
+      <hr>
 
-    <<%= schema.class_name %>Form :model="model" />
+      <<%= schema.class_name %>Form :model="model" />
 
-    <button class="button is-primary" @click="createModel()">
-      <i class="fa fa-fw fa-plus"></i>
-      Create <%= schema.label %>
-    </button>
+      <hr>
 
-    <button class="button is-light" @click="$router.go(-1)">
-      <i class="fa fa-fw fa-times"></i>
-      Cancel
-    </button>
+      <div class="buttons">
+        <button class="button is-primary" @click="createModel()">
+          <i class="fa fa-fw fa-plus"></i>
+          Create <%= schema.label %>
+        </button>
 
+        <button class="button is-light" @click="$router.go(-1)">
+          <i class="fa fa-fw fa-times"></i>
+          Cancel
+        </button>
+      </div>
+
+    </div>
   </section>
 </template>
 

@@ -24,9 +24,9 @@
 
       </div>
 
-      <!-- <b-pagination :total-rows="count" :value="currentPage" :per-page="perPage" @change="goToPage" /> -->
       <!-- <b-loading :active.sync="loading" :can-cancel="false"></b-loading> -->
       <ListView :collection="items" />
+      <!-- <b-pagination :total-rows="count" :value="currentPage" :per-page="perPage" @change="goToPage" /> -->
       <pre>{{items}}</pre>
     </div>
 
