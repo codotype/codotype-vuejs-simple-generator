@@ -56,7 +56,7 @@ export default {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(s => s.id %> === this.id)
     },
     <%_ related_schema.relations.forEach((rel, index) => { _%>
-    <%_ if ([RELATION_TYPE_HAS_ONE, RELATION_TYPE_BELONGS_TO].includes()) { _%>
+    <%_ if ([RELATION_TYPE_HAS_ONE, RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
     <%= rel.alias.identifier %> () {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(related_schema.relations, index) %>

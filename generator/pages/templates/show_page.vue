@@ -3,24 +3,34 @@
 
     <<%= schema.class_name %>Detail :model="model" />
 
-    <%_ if (schema.relations.length) { _%>
+    <%_ if (schema.relations.length || schema.reverse_relations.length) { _%>
+    <b-tabs>
 
-    <%_ schema.relations.forEach((rel) => { _%>
-    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
-    <Related<%= rel.alias.class_name %>Detail :id="model.<%= rel.alias.identifier %>_id"/>
-    <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-    <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
+      <%_ schema.relations.forEach((rel) => { _%>
+      <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
+      <b-tab-item label="<%= rel.alias.label %>">
+        <Related<%= rel.alias.class_name %>Detail :id="model.<%= rel.alias.identifier %>_id"/>
+      </b-tab-item>
+      <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
+      <b-tab-item label="<%= rel.alias.label_plural %>">
+        <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
+      </b-tab-item>
+      <%_ } _%>
+      <%_ }) _%>
+
+      <%_ schema.reverse_relations.forEach((rel) => { _%>
+
+      <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
+      <b-tab-item label="<%= rel.alias.label_plural %>">
+      <!-- <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" /> -->
+      </b-tab-item>
+      <%_ } _%>
+      <%_ }) _%>
+
+
+    </b-tabs>
     <%_ } _%>
-    <%_ }) _%>
 
-    <%_ schema.reverse_relations.forEach((rel) => { _%>
-
-    <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
-    <!-- <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" /> -->
-    <%_ } _%>
-    <%_ }) _%>
-
-    <%_ } _%>
 
   </section>
 </template>
