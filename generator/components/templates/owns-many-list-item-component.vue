@@ -1,9 +1,9 @@
 <template>
   <tr>
-  <%_ schema.attributes.forEach((attr, index) => { _%>
+  <%_ related_schema.attributes.forEach((attr, index) => { _%>
     <%_ if (attr.unique) { _%>
     <td>
-      <router-link :to=" '/<%= schema.identifier_plural %>/' + model.id ">
+      <router-link :to=" '/<%= related_schema.identifier_plural %>/' + model.id ">
         {{ model.<%=attr.identifier%> }}
       </router-link>
     </td>
@@ -15,12 +15,12 @@
       </span>
     </td>
     <%_ } else if (attr.datatype === 'STRING_ARRAY') { _%>
-    <td>{{model.<%= schema.attributes[index].identifier %>.join(', ')}}</td>
+    <td>{{model.<%= related_schema.attributes[index].identifier %>.join(', ')}}</td>
     <%_ } else { _%>
-    <td>{{model.<%= schema.attributes[index].identifier %>}}</td>
+    <td>{{model.<%= related_schema.attributes[index].identifier %>}}</td>
     <%_ } _%>
   <%_ }) _%>
-  <%_ schema.relations.forEach((rel) => { _%>
+  <%_ related_schema.relations.forEach((rel) => { _%>
   <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
     <td v-if="model.<%= rel.alias.identifier %>_id">
       <router-link :to="'/<%= rel.schema.identifier_plural %>/' + model.<%= rel.alias.identifier + '_id' %>">
@@ -37,11 +37,11 @@
     </td>
   <%_ } _%>
   <%_ }) _%>
-    <!-- Edit <%= schema.label %>-->
+    <!-- Edit <%= related_schema.label %>-->
     <td class='text-right'>
 
         <router-link
-          :to="`/<%= schema.identifier_plural %>/${model.id}`"
+          :to="`/<%= related_schema.identifier_plural %>/${model.id}`"
           class="button is-small is-primary"
         >
           <i class="fa fa-fw fa-eye"></i>
@@ -49,7 +49,7 @@
         </router-link>
 
         <router-link
-          :to="`/<%= schema.identifier_plural %>/${model.id}/edit`"
+          :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`"
           class="button is-small is-warning"
         >
           <i class="far fa-fw fa-edit"></i>
@@ -74,10 +74,10 @@ export default {
     }
   },
   computed: {
-    <%_ schema.relations.forEach((rel, index) => { _%>
+    <%_ related_schema.relations.forEach((rel, index) => { _%>
     <%= rel.alias.identifier %> () {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
-    }<%= helpers.trailingComma(schema.relations, index) %>
+    }<%= helpers.trailingComma(related_schema.relations, index) %>
     <%_ }) _%>
   }
 }

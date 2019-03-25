@@ -74,7 +74,6 @@
 <!-- // // // //  -->
 
 <script>
-// import { mapActions } from 'vuex'
 
 export default {
   name: '<%= schema.class_name %>Detail',
@@ -83,9 +82,6 @@ export default {
       required: true
     }
   },
-  // methods: mapActions({
-  //   onConfirmDestroy: '<%= schema.identifier %>/destroy'
-  // }),
   computed: {
     <%_ schema.relations.forEach((rel, index) => { _%>
     <%= rel.alias.identifier %> () {

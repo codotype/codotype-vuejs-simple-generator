@@ -1,26 +1,20 @@
 <template>
-  <LoadingFull v-if="fetching" />
-  <section class="section" v-else>
+  <section class="section">
 
     <h2><%= schema.label %> - Edit</h2>
 
     <hr>
 
-    <!-- <<%= schema.class_name %>Form :model="model" /> -->
+    <<%= schema.class_name %>Form :model="model" />
 
-    <button
-      class="mr-2"
-      @click="$router.go(-1)"
-    >
-      <i class="fa fa-fw fa-times"></i>
-      Cancel
-    </button>
-
-    <button
-      @click="updateModel(model)"
-    >
+    <button class="button is-primary" @click="updateModel()">
       <i class="fa fa-fw fa-plus"></i>
       Update <%= schema.label %>
+    </button>
+
+    <button class="button is-light" @click="$router.go(-1)">
+      <i class="fa fa-fw fa-times"></i>
+      Cancel
     </button>
 
   </section>
@@ -29,31 +23,31 @@
 <!-- // // // //  -->
 
 <script>
-// import LoadingFull from '@/components/LoadingFull'
-// import <%= schema.class_name %>Form from '@/modules/<%= schema.identifier %>/components/<%= schema.class_name %>Form'
+import <%= schema.class_name %>Form from '@/modules/<%= schema.identifier %>/components/<%= schema.class_name %>Form'
 
 export default {
-  name: '<%= schema.class_name %>EditPage',
-  props: {
-    id: {
-      type: String,
-      required: true
-    }
-  },
+  name: '<%= schema.class_name %>NewPage',
   metaInfo: {
     title: '<%= schema.label %> - Edit'
   },
-  // components: {
-  //   LoadingFull,
-  //   <%= schema.class_name %>Form
-  // },
-  // created () {
-  //   this.fetch(this.id)
-  // },
+  components: {
+    <%= schema.class_name %>Form
+  },
+  created () {
+    this.resetForm()
+  },
   data () {
-    return {
-      model: [],
-      loading: false
+    const model = this.$store.getters['<%= schema.identifier %>/collection/newModel']
+    return { model }
+  },
+  methods: {
+    updateModel () {
+      this.$store.commit('<%= schema.identifier %>/collection/newModel', this.model)
+      this.$store.dispatch('<%= schema.identifier %>/collection/create')
+      this.$router.go(-1)
+    },
+    resetForm () {
+      this.$store.commit('<%= schema.identifier %>/collection/resetNewModel')
     }
   }
 }

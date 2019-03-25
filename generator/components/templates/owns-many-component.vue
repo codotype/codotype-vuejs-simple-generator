@@ -42,121 +42,39 @@
         <td></td>
       </tr>
 
-      <tr v-for="m in collection" :key="m.id">
-      <%_ related_schema.attributes.forEach((attr) => { _%>
-        <%_ if (attr.unique) { _%>
-        <td>
-          <router-link :to=" '/<%= related_schema.identifier_plural %>/' + m.id ">
-            {{ m.<%=attr.identifier%> }}
-          </router-link>
-        </td>
-        <%_ } else if (attr.datatype === 'BOOLEAN') { _%>
-        <td>
-          <span>
-            <i class="fas fa-fw fa-check-square" v-if="m.<%=attr.identifier%>"></i>
-            <i class="fa fa-fw fa-square-o" v-if="!m.<%=attr.identifier%>"></i>
-          </span>
-        </td>
-        <%_ } else if (attr.datatype === 'STRING_ARRAY') { _%>
-        <td>{{ m.<%= attr.identifier %>.join(', ') }}</td>
-        <%_ } else { _%>
-        <td>{{m.<%= attr.identifier %>}}</td>
-        <%_ } _%>
-      <%_ }) _%>
+      <Related<%= rel.alias.class_name %>ListItem v-for="m in collection" :model="m" :key="m.id" />
 
-
-      <%_ related_schema.relations.forEach((r) => { _%>
-      <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(r.type)) { _%>
-
-        <td v-if="m.<%= r.alias.identifier %>_id">
-          <router-link :to="'/<%= r.schema.identifier_plural %>/' + m.<%= r.alias.identifier + '_id' %>">
-            {{m.<%= r.alias.identifier %>.<%= r.related_lead_attribute %>}}
-          </router-link>
-        </td>
-        <td v-else>N/A</td>
-      <%_ } else if (r.type === RELATION_TYPE_HAS_MANY) { _%>
-
-        <td v-if="m.<%=r.alias.identifier %>_ids">
-          {{ m.<%=r.alias.identifier %>_ids.length }} <%=r.alias.label_plural %>
-        </td>
-        <td v-else>N/A</td>
-      <%_ } _%>
-      <%_ }) _%>
-
-
-
-        <!-- Edit <%= related_schema.label %>-->
-        <td class='text-right'>
-
-          <b-dropdown right size="sm">
-            <b-dropdown-item :to=" '/<%= related_schema.identifier_plural %>/' + m.id">
-              <i class="fa fa-fw fa-eye"></i>
-              View
-            </b-dropdown-item>
-
-            <b-dropdown-item v-if="isAuthenticated" :to=" '/<%= related_schema.identifier_plural %>/' + m.id + '/edit' ">
-              <i class="far fa-fw fa-edit"></i>
-              Edit
-            </b-dropdown-item>
-
-            <b-dropdown-item v-if="isAdmin" v-b-modal="'modal_' + m.id">
-              <i class="far fa-fw fa-trash-alt"></i>
-              Delete
-            </b-dropdown-item>
-
-          </b-dropdown>
-        </td>
-
-        <!-- Bootstrap Modal Component -->
-        <b-modal :id="'modal_' + m.id"
-          :title="'Destroy <%= related_schema.label %>?'"
-          @ok="onConfirmDestroy(m.id)"
-          ok-variant='danger'
-          ok-title='DESTROY'
-          cancel-title='Cancel'
-        >
-          <p class="text-left">Are you sure you want to destroy this <%= related_schema.label %>?</p>
-        </b-modal>
-
-      </tr>
     </tbody>
 
   </table>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-
+import Related<%= rel.alias.class_name %>ListItem from './Related<%= rel.alias.class_name %>ListItem'
 export default {
   props: {
-    id: {
+    <%= schema.identifier %>_id: {
       type: String,
       required: true
     }
   },
-  mounted () {
-    this.fetch(this.id)
+  components: {
+    Related<%= rel.alias.class_name %>ListItem
   },
-  methods: mapActions({
+  computed: {
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
-    fetch: '<%= schema.identifier %>/related<%= rel.alias.class_name %>/fetch',
+    model () {
+      return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
+    },
     <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
-    fetch: '<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/fetch',
+    collection () {
+      return this.$store.getters['<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection']
+    },
     <%_ } else if (rel.type === 'REF_BELONGS_TO') { _%>
-    fetch: '<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/fetch',
+    collection () {
+      return this.$store.getters['<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection']
+    },
     <%_ } _%>
-    onConfirmDestroy: '<%= related_schema.identifier %>/destroy'
-  }),
-  computed: mapGetters({
-    isAuthenticated: 'auth/is_authenticated',
-    isAdmin: 'auth/isAdmin',
-    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
-    model: '<%= schema.identifier %>/related<%= rel.alias.class_name %>/model',
-    <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
-    collection: '<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection',
-    <%_ } else if (rel.type === 'REF_BELONGS_TO') { _%>
-    collection: '<%= schema.identifier %>/related<%= rel.alias.class_name_plural %>/collection',
-    <%_ } _%>
-  })
+  }
 }
 </script>
