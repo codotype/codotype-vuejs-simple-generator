@@ -5,10 +5,9 @@
 
       <b-field
         id="fieldset-<%= attr.identifier %>"
-        label="<%= schema.label %>"
+        label="<%= attr.label %>"
         message="<%= attr.help %>"
       >
-      <!-- <b-input id="<%= attr.identifier %>-input" :state="state" v-model="name" trim /> -->
 
       <%_ if (attr.datatype === DATATYPE_BOOLEAN) { _%>
         <b-form-checkbox v-model="model.<%=attr.identifier%>"
@@ -22,7 +21,12 @@
           v-model="model.<%=attr.identifier%>"
         />
       <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
-        INPUT TAGS GO HERE
+        <b-taginput
+            ellipsis
+            v-model="<%= attr.identifier %>"
+            icon="label"
+            placeholder="Add a <%= attr.label %>">
+        </b-taginput>
       <%_ } else if ([DATATYPE_INTEGER, DATATYPE_FLOAT, DATATYPE_DOUBLE].includes(attr.datatype)) { _%>
         <b-input
           type="number"
@@ -77,6 +81,7 @@
       >
         <%_ if (rel.type === RELATION_TYPE_BELONGS_TO) { _%>
         <b-select
+          expanded
           placeholder="<%= rel.alias.label %>"
           v-model="model.<%=rel.alias.identifier%>_id"
         >
@@ -91,8 +96,8 @@
         </b-select>
       <%_ } else if (rel.type === RELATION_TYPE_HAS_MANY) { _%>
         <b-select
-          type="text"
-          multiple class="form-control"
+          expanded
+          multiple
           placeholder="<%= rel.alias.label %>"
           v-model="model.<%=rel.alias.identifier%>_ids"
         >
