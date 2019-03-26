@@ -17,7 +17,7 @@
       <b-row class="row my-4">
         <b-col lg="12" class="text-center">
           <a class="btn btn-lg btn-outline-dark" href="https://codotype.github.io" target="_blank">
-            <i class="fa fa-book mr-1"></i>
+            <i class="fa fa-book"></i>
             Documentation
           </a>
         </b-col>

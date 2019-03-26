@@ -1,7 +1,7 @@
 <template>
-  <div class='columns'>
+  <div class='columns is-multiline is-mobile'>
   <%_ schema.attributes.forEach((attr) => { _%>
-    <div class='column'>
+    <div class='column is-half'>
 
       <b-field
         id="fieldset-<%= attr.identifier %>"
@@ -10,8 +10,7 @@
       >
 
       <%_ if (attr.datatype === DATATYPE_BOOLEAN) { _%>
-        <b-form-checkbox v-model="model.<%=attr.identifier%>"
-        />
+        <b-switch v-model="<%= attr.identifier %>"></b-switch>
       <%_ } else if (attr.datatype === DATATYPE_STRING) { _%>
         <b-input
           trim
@@ -73,7 +72,7 @@
     <%_ }) _%>
     <%_ schema.relations.forEach((rel) => { _%>
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE, RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
-    <div class="column">
+    <div class="column is-half">
       <b-field
         id="fieldset-<%= rel.alias.identifier %>"
         label="<%= rel.alias.label %>"

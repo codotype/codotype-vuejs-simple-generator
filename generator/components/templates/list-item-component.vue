@@ -39,30 +39,28 @@
   <%_ }) _%>
 
     <td>
-      <div class="buttons is-right">
 
-        <router-link
-          :to="`/<%= schema.identifier_plural %>/${model.id}`"
-          class="button is-small is-primary"
-        >
+      <b-dropdown aria-role="list" position="is-bottom-left">
+        <button class="button is-dark is-small" slot="trigger">
+          <i class="fa fa-caret-down"></i>
+        </button>
+
+        <b-dropdown-item aria-role="listitem" :to="`/<%= schema.identifier_plural %>/${model.id}`">
           <i class="fa fa-fw fa-eye"></i>
           View
-        </router-link>
+        </b-dropdown-item>
 
-        <router-link
-          :to="`/<%= schema.identifier_plural %>/${model.id}/edit`"
-          class="button is-small is-warning"
-        >
+        <b-dropdown-item aria-role="listitem" :to="`/<%= schema.identifier_plural %>/${model.id}/edit`">
           <i class="far fa-fw fa-edit"></i>
           Edit
-        </router-link>
+        </b-dropdown-item>
 
-        <a class="button is-small is-danger">
+        <b-dropdown-item aria-role="listitem" @click="confirmDestroy()">
           <i class="far fa-fw fa-trash-alt"></i>
           Delete
-        </a>
+        </b-dropdown-item>
+      </b-dropdown>
 
-      </div>
     </td>
 
   </tr>
@@ -83,6 +81,20 @@ export default {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(schema.relations, index) %>
     <%_ }) _%>
+  },
+  methods: {
+    confirmDestroy () {
+      this.$dialog.confirm({
+        title: 'Deleting <%= schema.label %>',
+        message: 'Are you sure you want to <b>delete</b> this <%= schema.label %>? This action cannot be undone.',
+        confirmText: 'Delete <%= schema.label %>',
+        type: 'is-danger',
+        onConfirm: () => {
+          this.$store.dispatch('<%= schema.identifier %>/collection/destroy', this.model.id)
+          this.$toast.open('<%= schema.label %> deleted!')
+        }
+      })
+    }
   }
 }
 </script>

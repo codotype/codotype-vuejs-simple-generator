@@ -91,7 +91,7 @@
           <p class="lead text-muted">This app was built with</p>
           <p class="lead text-primary"><router-link to="/auth/register">Please register a new account to get started.</router-link></p>
 
-          <a class="btn btn-lg btn-outline-dark mx-2" href="https://codotype.org" target="_blank">
+          <a class="button is-primary" href="https://codotype.org" target="_blank">
             <i class="fa fa-book"></i>
             codotype.org
           </a>
