@@ -26,7 +26,16 @@
             icon="label"
             placeholder="Add a <%= attr.label %>">
         </b-taginput>
-      <%_ } else if ([DATATYPE_INTEGER, DATATYPE_FLOAT, DATATYPE_DOUBLE].includes(attr.datatype)) { _%>
+      <%_ } else if (attr.datatype === DATATYPE_INTEGER) { _%>
+        <b-input
+          type="number"
+          step="1"
+          id="<%= attr.identifier %>-input"
+          :required="<%= attr.required %>"
+          placeholder="<%= attr.label %>"
+          v-model="model.<%=attr.identifier%>"
+        />
+      <%_ } else if ([DATATYPE_FLOAT, DATATYPE_DOUBLE].includes(attr.datatype)) { _%>
         <b-input
           type="number"
           id="<%= attr.identifier %>-input"
