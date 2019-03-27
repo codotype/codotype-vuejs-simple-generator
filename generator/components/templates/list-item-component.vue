@@ -22,7 +22,7 @@
   <%_ }) _%>
   <%_ schema.relations.forEach((rel) => { _%>
   <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
-    <td v-if="model.<%= rel.alias.identifier %>_id">
+    <td v-if="model.<%= rel.alias.identifier %>_id && <%= rel.alias.identifier %>">
       <router-link :to="'/<%= rel.schema.identifier_plural %>/' + model.<%= rel.alias.identifier + '_id' %>">
         {{ <%= rel.alias.identifier %>.<%= rel.related_lead_attribute %> }}
       </router-link>
@@ -45,17 +45,21 @@
           <i class="fa fa-caret-down"></i>
         </button>
 
-        <b-dropdown-item aria-role="listitem" :to="`/<%= schema.identifier_plural %>/${model.id}`">
-          <i class="fa fa-fw fa-eye"></i>
-          View
+        <b-dropdown-item has-link aria-role="menuitem">
+          <router-link :to="`/<%= schema.identifier_plural %>/${model.id}`">
+            <i class="fa fa-fw fa-eye"></i>
+            View
+          </router-link>
         </b-dropdown-item>
 
-        <b-dropdown-item aria-role="listitem" :to="`/<%= schema.identifier_plural %>/${model.id}/edit`">
-          <i class="far fa-fw fa-edit"></i>
-          Edit
+        <b-dropdown-item has-link aria-role="menuitem">
+          <router-link :to="`/<%= schema.identifier_plural %>/${model.id}/edit`">
+            <i class="far fa-fw fa-edit"></i>
+            Edit
+          </router-link>
         </b-dropdown-item>
 
-        <b-dropdown-item aria-role="listitem" @click="confirmDestroy()">
+        <b-dropdown-item aria-role="menuitem" @click="confirmDestroy()">
           <i class="far fa-fw fa-trash-alt"></i>
           Delete
         </b-dropdown-item>
