@@ -35,7 +35,7 @@
           placeholder="<%= attr.label %>"
           v-model="model.<%=attr.identifier%>"
         />
-      <%_ } else if ([DATATYPE_FLOAT, DATATYPE_DOUBLE].includes(attr.datatype)) { _%>
+      <%_ } else if ([DATATYPE_FLOAT].includes(attr.datatype)) { _%>
         <b-input
           type="number"
           id="<%= attr.identifier %>-input"
