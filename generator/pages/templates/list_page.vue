@@ -1,10 +1,7 @@
 <template>
   <section class="section">
-
     <div class="container is-fluid">
-
       <div class="columns">
-
         <div class="column is-9">
           <h1 class="title">
             <i class="fa fa-cube"></i>
@@ -21,15 +18,11 @@
             New <%= schema.label %>
           </router-link>
         </div>
-
       </div>
 
-      <!-- <b-loading :active.sync="loading" :can-cancel="false"></b-loading> -->
       <ListView :collection="items" />
-      <!-- <b-pagination :total-rows="count" :value="currentPage" :per-page="perPage" @change="goToPage" /> -->
-      <pre>{{items}}</pre>
-    </div>
 
+    </div>
   </section>
 </template>
 

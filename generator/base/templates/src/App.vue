@@ -15,9 +15,6 @@ export default {
   components: {
     Navbar
   },
-  // created () {
-  //   this.$store.dispatch('auth/profile/fetch') // Authenticates current user on application start
-  // },
   metaInfo: {
     title: 'Loading...', // set a title
     titleTemplate: '<%= blueprint.label %> - %s', // title is now "<%= blueprint.label %> - Loading..."

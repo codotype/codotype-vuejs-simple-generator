@@ -9,7 +9,26 @@
           <h2 class="subtitle">
             <%= meta.description %>
           </h2>
-          <h2 class="subtitle">powered by <a target="_blank" href="https://codotype.org">Codotype</a></h2>
+
+          <a
+            href="https://bulma.io"
+            target="_blank"
+          >
+            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="256" height="48">
+          </a>
+
+          <br>
+          <br>
+
+          <a
+            class="button is-dark is-medium"
+            href="https://codotype.org"
+            target="_blank"
+          >
+            <i class="fa fa-fw fa-cog"></i>
+            Generated with Codotype
+          </a>
+
         </div>
       </div>
     </div>
@@ -94,50 +113,24 @@
               <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>
             </li>
           </ul>
-
-          <p class="is-size-5 has-text-centered">
-            Check out the <a href="" target="_blank">documentation</a> for this Codotype Generator.
-          </p>
-
         </div>
-
-        <hr>
-
-        <div class="content has-text-centered">
-          <p class="is-size-5 has-text-centered">
-            Take a look at some of great <a href="https://dansup.github.io/bulma-templates/" target="_blank">Free Bulma Templates</a> to jump-start your next project.
-          </p>
-
-          <a
-            class="button is-info is-medium"
-            href="https://codotype.org"
-            target="_blank"
-          >
-            <i class="fa fa-fw fa-cog"></i>
-            Generated with Codotype
-          </a>
-
-          <br>
-          <br>
-
-          <a
-            href="https://bulma.io"
-            target="_blank"
-          >
-            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="256" height="48">
-          </a>
-        </div>
-
       </div>
     </div>
+
+    <HomeFooter />
   </section>
 </template>
 
 <script>
-  export default {
-    name: 'Home',
-    metaInfo: {
-      title: 'Home'
-    }
+import HomeFooter from './HomeFooter'
+
+export default {
+  name: 'Home',
+  metaInfo: {
+    title: 'Home'
+  },
+  components: {
+    HomeFooter
   }
+}
 </script>
