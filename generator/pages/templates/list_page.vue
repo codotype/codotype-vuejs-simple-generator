@@ -12,7 +12,7 @@
           </h1>
         </div>
 
-        <div class="column">
+        <div class="column has-text-right">
           <router-link
             class="button is-primary"
             to="/<%= schema.identifier_plural %>/new"

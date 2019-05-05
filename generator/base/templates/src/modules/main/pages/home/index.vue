@@ -13,21 +13,38 @@
         </div>
       </div>
     </div>
-    <div class="additional-bar has-shadow">
-      <div class="container">
-        <div class="content has-text-centered">
-          <!-- write content here -->
-        </div>
-      </div>
-    </div>
     <div class="section">
       <div class="container">
         <div class="content">
+
+          <h1 class="title">Getting Started</h1>
+
           <b-field grouped group-multiline>
             <div class="control">
               <b-taglist attached>
                 <b-tag type="is-dark">vue</b-tag>
                 <b-tag type="is-success">2.5.2</b-tag>
+              </b-taglist>
+            </div>
+
+            <div class="control">
+              <b-taglist attached>
+                <b-tag type="is-dark">vue-router</b-tag>
+                <b-tag type="is-success">3.0.1</b-tag>
+              </b-taglist>
+            </div>
+
+            <div class="control">
+              <b-taglist attached>
+                <b-tag type="is-dark">vuex</b-tag>
+                <b-tag type="is-success">3.0.0</b-tag>
+              </b-taglist>
+            </div>
+
+            <div class="control">
+              <b-taglist attached>
+                <b-tag type="is-dark">bulma</b-tag>
+                <b-tag type="is-primary">0.7.4</b-tag>
               </b-taglist>
             </div>
 
@@ -40,62 +57,77 @@
 
             <div class="control">
               <b-taglist attached>
+                <b-tag type="is-dark">font-awesome</b-tag>
+                <b-tag type="is-info">5.3.1</b-tag>
+              </b-taglist>
+            </div>
+
+            <div class="control">
+              <b-taglist attached>
                 <b-tag type="is-dark">webpack</b-tag>
                 <b-tag type="is-info">3.8.1</b-tag>
               </b-taglist>
             </div>
           </b-field>
-          <h1 class="title">Getting Started</h1>
+
           <hr>
-          <h4><b>Create</b> project using <span class="tag">vue-cli</span>: </h4>
-          Clone or download the project, <a href="https://github.com/ndro/vue-webpack-buefy/archive/master.zip">here</a>. Then,
-          <pre>
-            $ cd (folder-project)
-            $ npm install
-          </pre>
-          <h4><b>run</b> project with: (<a href="https://github.com/vuejs-templates/webpack">reference</a>)</h4>
-          <pre>
-            # serve with hot reload at localhost:8080
-            $ npm run dev
 
-            # build for production with minification
-            $ npm run build
+          <p class="is-size-4">This starter codebase was built with the following:</p>
 
-            # build for production and view the bundle analyzer report
-            $ npm run build --report
-          </pre>
-          <h4>if you want to run <b>unit-test</b> using: (<a href="https://github.com/vuejs-templates/webpack">reference</a>)</h4> <i>*doesn't implemented yet</i>
-          <pre>
-            # run unit tests
-            $ npm run unit
-
-            # run e2e tests
-            $ npm run e2e
-
-            # run all tests
-            $ npm test
-          </pre>
-          <hr>
-          <h4>For more <b>reference</b>:</h4>
           <ul>
-            <li><a href="https://vuejs.org/v2/guide/">Vue.js</a></li>
-            <li><a href="https://bulma.io/documentation/overview/start/">Bulma</a></li>
-            <li><a href="https://buefy.github.io/#/documentation/start">Buefy</a></li>
-            <li><a href="https://github.com/vuejs/awesome-vue">Awesome Vue.js</a> (additional reference)</li>
+            <li>
+              <a href="https://vuejs.org/" target="_blank">Vue.js</a>
+            </li>
+            <li>
+              <a href="https://router.vuejs.org" target="_blank">Vue Router</a>
+            </li>
+            <li>
+              <a href="https://vuex.vuejs.org" target="_blank">Vuex</a>
+            </li>
+            <li>
+              <a href="https://buefy.org/" target="_blank">Bulma</a>
+            </li>
+            <li>
+              <a href="https://buefy.org/" target="_blank">Buefy</a>
+            </li>
+            <li>
+              <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>
+            </li>
           </ul>
 
+          <p class="is-size-5 has-text-centered">
+            Check out the <a href="" target="_blank">documentation</a> for this Codotype Generator.
+          </p>
+
+        </div>
+
+        <hr>
+
+        <div class="content has-text-centered">
+          <p class="is-size-5 has-text-centered">
+            Take a look at some of great <a href="https://dansup.github.io/bulma-templates/" target="_blank">Free Bulma Templates</a> to jump-start your next project.
+          </p>
+
+          <a
+            class="button is-info is-medium"
+            href="https://codotype.org"
+            target="_blank"
+          >
+            <i class="fa fa-fw fa-cog"></i>
+            Generated with Codotype
+          </a>
+
           <br>
           <br>
 
-          <p class="lead text-muted">This app was built with</p>
-          <p class="lead text-muted">This app was built with</p>
-          <p class="lead text-primary"><router-link to="/auth/register">Please register a new account to get started.</router-link></p>
-
-          <a class="button is-primary" href="https://codotype.org" target="_blank">
-            <i class="fa fa-book"></i>
-            codotype.org
+          <a
+            href="https://bulma.io"
+            target="_blank"
+          >
+            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="256" height="48">
           </a>
         </div>
+
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
-# Vue.js + Vuex + Bootstrap Generator
-Codotype generator for Vue.js, Vue Router, Vuex, & Bootstrap 4
+# Vue.js + Vuex + Bulma + Buefy Generator
+Codotype generator for [Vue.js](https://vuejs.org/), [Vue Router](https://router.vuejs.org/), [Vuex](https://vuex.vuejs.org/), [Bulma](https://buefy.org/), & [Buefy](https://buefy.org/)
+#### Built with [Codotype](https://codotype.org)
 
 ## Build Setup
 

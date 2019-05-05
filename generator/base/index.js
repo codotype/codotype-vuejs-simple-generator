@@ -2,10 +2,7 @@ module.exports = {
   name: 'VueBase',
   async write () {
 
-    await this.copyDir(
-      this.templatePath(),
-      this.destinationPath()
-    )
+    await this.copyDir({ src: '', dest: '' })
 
     await this.renderComponent({ src: 'package.json', dest: 'package.json' })
     await this.renderComponent({ src: 'LICENSE', dest: 'LICENSE' })

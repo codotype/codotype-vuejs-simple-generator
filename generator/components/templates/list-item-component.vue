@@ -38,7 +38,7 @@
   <%_ } _%>
   <%_ }) _%>
 
-    <td>
+    <td class="has-text-right">
 
       <b-dropdown aria-role="list" position="is-bottom-left">
         <button class="button is-dark is-small" slot="trigger">

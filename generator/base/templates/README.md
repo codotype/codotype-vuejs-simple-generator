@@ -1,6 +1,6 @@
 # <%= blueprint.label %>
 
-## A simple Vue.js App
+## A simple app with [Vue.js](https://vuejs.org/), [Vue Router](https://router.vuejs.org/), [Vuex](https://vuex.vuejs.org/), [Bulma](https://buefy.org/), & [Buefy](https://buefy.org/)
 #### Built with [Codotype](https://codotype.org)
 
 ## Project setup

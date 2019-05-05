@@ -55,8 +55,8 @@ export default {
   },
   methods: {
     updateModel () {
-      this.$store.commit('<%= schema.identifier %>/collection/newModel', this.model)
-      this.$store.dispatch('<%= schema.identifier %>/collection/create')
+      this.$store.commit('<%= schema.identifier %>/collection/editModel', this.model)
+      this.$store.dispatch('<%= schema.identifier %>/collection/update')
       this.$router.go(-1)
     },
     resetForm () {
