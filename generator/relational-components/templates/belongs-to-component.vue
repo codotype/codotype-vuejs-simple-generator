@@ -16,7 +16,7 @@
     <tbody>
       <tr>
         <%_ related_schema.attributes.forEach((attr) => { _%>
-        <%_ if (attr.datatype === 'STRING_ARRAY') { _%>
+        <%_ if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
         <td>{{model.<%= attr.identifier %>.join(', ')}}</td>
         <%_ } else if (attr.datatype === 'BOOLEAN') { _%>
         <td>

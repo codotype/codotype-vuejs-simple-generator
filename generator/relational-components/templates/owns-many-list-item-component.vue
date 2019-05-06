@@ -14,7 +14,7 @@
         <i class="fa fa-fw fa-square-o" v-if="!model.<%=attr.identifier%>"></i>
       </span>
     </td>
-    <%_ } else if (attr.datatype === 'STRING_ARRAY') { _%>
+    <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
     <td>{{model.<%= related_schema.attributes[index].identifier %>.join(', ')}}</td>
     <%_ } else { _%>
     <td>{{model.<%= related_schema.attributes[index].identifier %>}}</td>

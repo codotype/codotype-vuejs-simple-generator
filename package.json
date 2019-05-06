@@ -1,11 +1,8 @@
 {
   "name": "@codotype/codotype-vuejs-simple-generator",
-  "version": "0.1.0",
-  "description": "A Codotype generator Vue.js, Vuex, Axios, &amp; Bootstrap",
+  "version": "0.2.0",
+  "description": "A simple Vue.js frontend generator with Vuex, Bulma, &amp; Buefy",
   "main": "index.js",
-  "scripts": {
-    "test": "node test.js"
-  },
   "author": "Alexander Schwartzberg",
   "license": "MIT",
   "bugs": {

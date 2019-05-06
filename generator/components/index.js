@@ -10,33 +10,33 @@ module.exports = {
     this.ensureDir(moduleComponentsDest)
 
     // src/modules/resource/components/ResourceForm.vue
-    await this.copyTemplate(
-      this.templatePath('form_component.vue'),
-      this.destinationPath(moduleComponentsDest + schema.class_name + 'Form.vue'),
-      { schema }
-    )
+    await this.renderComponent({
+      src: 'form_component.vue',
+      dest: moduleComponentsDest + schema.class_name + 'Form.vue',
+      data: { schema }
+    })
 
     // src/modules/resource/components/ResourceList.vue
-    await this.copyTemplate(
-      this.templatePath('list-component.vue'),
-      this.destinationPath(moduleComponentsDest + schema.class_name + 'List.vue'),
-      { schema }
-    );
+    await this.renderComponent({
+      src: 'list-component.vue',
+      dest: moduleComponentsDest + schema.class_name + 'List.vue',
+      data: { schema }
+    });
 
     // src/modules/resource/components/ResourceListItem.vue
-    await this.copyTemplate(
-      this.templatePath('list-item-component.vue'),
-      this.destinationPath(moduleComponentsDest + schema.class_name + 'ListItem.vue'),
-      { schema }
-    );
+    await this.renderComponent({
+      src: 'list-item-component.vue',
+      dest: moduleComponentsDest + schema.class_name + 'ListItem.vue',
+      data: { schema }
+    });
 
     // src/modules/resource/components/ResourceDetail.vue
     // src/components/resource_ListWidget.vue
-    await this.copyTemplate(
-      this.templatePath('detail-component.vue'),
-      this.destinationPath(moduleComponentsDest + schema.class_name + 'Detail.vue'),
-      { schema }
-    );
+    await this.renderComponent({
+      src: 'detail-component.vue',
+      dest: moduleComponentsDest + schema.class_name + 'Detail.vue',
+      data: { schema }
+    });
 
   }
 
