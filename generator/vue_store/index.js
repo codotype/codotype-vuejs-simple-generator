@@ -10,19 +10,19 @@ module.exports = {
     await this.ensureDir('src/modules/' + schema.identifier + '/store')
 
     // src/store/resource/index.js
-    await this.copyTemplate(
-      this.templatePath('index.js'),
-      this.destinationPath('src/modules/' + schema.identifier + '/store/index.js'),
-      { schema }
-    );
+    await this.renderComponent({
+      src: 'index.js',
+      dest: 'src/modules/' + schema.identifier + '/store/index.js',
+      data: { schema }
+    });
 
     // src/store/resource/constants.js
     // TODO - how can we get newModel to print as a JavaScript object, rather than stringified JSON?
-    await this.copyTemplate(
-      this.templatePath('constants.js'),
-      this.destinationPath('src/modules/' + schema.identifier + '/store/constants.js'),
-      { schema: schema, newModel: JSON.stringify(newModel, null, 2) }
-    );
+    await this.renderComponent({
+      src: 'constants.js',
+      dest: 'src/modules/' + schema.identifier + '/store/constants.js',
+      data: { schema: schema, newModel: JSON.stringify(newModel, null, 2) }
+    });
 
   }
 

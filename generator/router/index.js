@@ -33,14 +33,14 @@ module.exports = {
       buildModule(s)
     })
 
-    await this.copyTemplate(
-      this.templatePath('router.js'),
-      this.destinationPath('src/router.js'),
-      {
+    await this.renderComponent({
+      src: 'router.js',
+      dest: 'src/router.js',
+      data: {
         routeImports: routeImports.join("\n"),
         routeModules: routeModules.join(",\n    ")
       }
-    );
+    });
 
     // Iterates over each schema in the this.options.build.blueprint.schemas array
     // TODO - encapsulate this in a call for forEachSchema
@@ -49,13 +49,13 @@ module.exports = {
 
       // Isolates API Actions metadata
       // src/modules/module/router.js
-      await this.copyTemplate(
-        this.templatePath('module-router.js'),
-        this.destinationPath('src/modules/' + schema.identifier + '/router.js'),
-        { schema }
-      )
+      await this.renderComponent({
+        src: 'module-router.js',
+        dest: 'src/modules/' + schema.identifier + '/router.js',
+        data: { schema }
+      })
 
     }
-    // console.log('WROTE MODULE STORE')
+
   }
 }

@@ -10,32 +10,32 @@ module.exports = {
     await this.ensureDir(moduleRoot + '/pages')
 
     // src/modules/resource/pages/list.vue
-    await this.copyTemplate(
-      this.templatePath('list_page.vue'),
-      this.destinationPath(moduleRoot + '/pages/list.vue'),
-      { schema }
-    )
+    await this.renderComponent({
+      src: 'list_page.vue',
+      dest: moduleRoot + '/pages/list.vue',
+      data: { schema }
+    })
 
     // src/modules/resource/pages/new/index.vue
-    await this.copyTemplate(
-      this.templatePath('new_page.vue'),
-      this.destinationPath(moduleRoot + '/pages/new.vue'),
-      { schema }
-    )
+    await this.renderComponent({
+      src: 'new_page.vue',
+      dest: moduleRoot + '/pages/new.vue',
+      data: { schema }
+    })
 
     // src/modules/resource/pages/edit.vue
-    await this.copyTemplate(
-      this.templatePath('edit_page.vue'),
-      this.destinationPath(moduleRoot + '/pages/edit.vue'),
-      { schema }
-    )
+    await this.renderComponent({
+      src: 'edit_page.vue',
+      dest: moduleRoot + '/pages/edit.vue',
+      data: { schema }
+    })
 
     // src/modules/resource/pages/show.vue
-    await this.copyTemplate(
-      this.templatePath('show_page.vue'),
-      this.destinationPath(moduleRoot + '/pages/show.vue'),
-      { schema }
-    )
+    await this.renderComponent({
+      src: 'show_page.vue',
+      dest: moduleRoot + '/pages/show.vue',
+      data: { schema }
+    })
 
   }
 };

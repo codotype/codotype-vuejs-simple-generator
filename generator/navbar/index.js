@@ -11,10 +11,10 @@ module.exports = {
       }
     })
 
-    await this.copyTemplate(
-      this.templatePath('Navbar.vue'),
-      this.destinationPath('src/components/Navbar.vue'),
-      { headerLinks: headerLinks }
-    );
+    await this.renderComponent({
+      src: 'Navbar.vue',
+      dest: 'src/components/Navbar.vue',
+      data: { headerLinks: headerLinks }
+    });
   }
 }
