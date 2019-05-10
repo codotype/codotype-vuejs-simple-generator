@@ -22,7 +22,7 @@
       <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
         <b-taginput
             ellipsis
-            v-model="<%= attr.identifier %>"
+            v-model="model.<%= attr.identifier %>"
             icon="label"
             placeholder="Add a <%= attr.label %>">
         </b-taginput>
