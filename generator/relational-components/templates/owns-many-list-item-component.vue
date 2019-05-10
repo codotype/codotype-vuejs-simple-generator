@@ -7,7 +7,7 @@
         {{ model.<%=attr.identifier%> }}
       </router-link>
     </td>
-    <%_ } else if (attr.datatype === 'BOOLEAN') { _%>
+    <%_ } else if (attr.datatype === DATATYPE_BOOLEAN) { _%>
     <td>
       <span>
         <i class="fas fa-fw fa-check-square" v-if="model.<%=attr.identifier%>"></i>
@@ -40,19 +40,30 @@
   <%_ }) _%>
 
     <td class='has-text-right'>
-      <div class="buttons is-right">
+      <b-dropdown aria-role="list" position="is-bottom-left">
+        <button class="button is-dark is-small" slot="trigger">
+          <i class="fa fa-caret-down"></i>
+        </button>
 
-        <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}`" class="button is-small is-primary">
-          <i class="fa fa-fw fa-eye"></i>
-          View
-        </router-link>
+        <b-dropdown-item has-link aria-role="menuitem">
+          <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}`">
+            <i class="fa fa-fw fa-eye"></i>
+            View
+          </router-link>
+        </b-dropdown-item>
 
-        <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`" class="button is-small is-warning">
-          <i class="far fa-fw fa-edit"></i>
-          Edit
-        </router-link>
+        <b-dropdown-item has-link aria-role="menuitem">
+          <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`">
+            <i class="far fa-fw fa-edit"></i>
+            Edit
+          </router-link>
+        </b-dropdown-item>
 
-      </div>
+        <b-dropdown-item aria-role="menuitem" @click="confirmDestroy()">
+          <i class="far fa-fw fa-trash-alt"></i>
+          Delete
+        </b-dropdown-item>
+      </b-dropdown>
     </td>
 
   </tr>
@@ -73,6 +84,20 @@ export default {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(related_schema.relations, index) %>
     <%_ }) _%>
+  },
+  methods: {
+    confirmDestroy () {
+      this.$dialog.confirm({
+        title: 'Deleting <%= related_schema.label %>',
+        message: 'Are you sure you want to <b>delete</b> this <%= related_schema.label %>? This action cannot be undone.',
+        confirmText: 'Delete <%= related_schema.label %>',
+        type: 'is-danger',
+        onConfirm: () => {
+          this.$store.dispatch('<%= related_schema.identifier %>/collection/destroy', this.model.id)
+          this.$toast.open('<%= related_schema.label %> deleted!')
+        }
+      })
+    }
   }
 }
 </script>

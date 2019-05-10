@@ -37,11 +37,11 @@
             <td><%= attr.label %></td>
             <%_ if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
             <td>{{model.<%= attr.identifier %>.join(', ')}}</td>
-            <%_ } else if (attr.datatype === 'BOOLEAN') { _%>
+            <%_ } else if (attr.datatype === DATATYPE_BOOLEAN) { _%>
             <td>
               <span>
-                <i class="fas fa-fw fa-check-square" v-if="model.<%= attr.identifier%>"></i>
-                <i class="fa fa-fw fa-square-o" v-if="!model.<%= attr.identifier%>"></i>
+                <i class="fas fa-fw fa-check-square" v-if="model.<%= attr.identifier%>">TRUE</i>
+                <i class="fa fa-fw fa-square-o" v-if="!model.<%= attr.identifier%>">FALSE</i>
               </span>
             </td>
             <%_ } else { _%>

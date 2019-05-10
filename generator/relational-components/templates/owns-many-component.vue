@@ -70,11 +70,12 @@ export default {
   },
   computed: {
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(relation.type)) { _%>
-    model () {
-      return this.$store.getters['<%= relation.schema.identifier %>/collection/items'].find(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
+    collection () {
+      return this.$store.getters['<%= relation.schema.identifier %>/collection/items']
+      .filter(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
     },
     <%_ } _%>
-    <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_MANY].includes(relation.type)) { _%>
+    <%_ if ([RELATION_TYPE_HAS_MANY].includes(relation.type)) { _%>
     collection () {
       return this.$store.getters['<%= relation.schema.identifier %>/collection/items']
     },

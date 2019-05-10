@@ -10,7 +10,7 @@
       >
 
       <%_ if (attr.datatype === DATATYPE_BOOLEAN) { _%>
-        <b-switch v-model="<%= attr.identifier %>"></b-switch>
+        <b-switch v-model="model.<%= attr.identifier %>" />
       <%_ } else if (attr.datatype === DATATYPE_STRING) { _%>
         <b-input
           trim

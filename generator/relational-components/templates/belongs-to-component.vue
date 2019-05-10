@@ -11,6 +11,7 @@
       <th><%= r.alias.label_plural %></th>
       <%_ } _%>
       <%_ }) _%>
+      <th/>
 
     </thead>
     <tbody>
@@ -18,7 +19,7 @@
         <%_ related_schema.attributes.forEach((attr) => { _%>
         <%_ if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
         <td>{{model.<%= attr.identifier %>.join(', ')}}</td>
-        <%_ } else if (attr.datatype === 'BOOLEAN') { _%>
+        <%_ } else if (attr.datatype === DATATYPE_BOOLEAN) { _%>
         <td>
           <span>
             <i class="fas fa-fw fa-check-square-o" v-if="model.<%= attr.identifier%>"></i>
@@ -38,6 +39,28 @@
         <td v-else>N/A</td>
         <%_ } _%>
         <%_ }) _%>
+
+        <td class='has-text-right'>
+          <b-dropdown aria-role="list" position="is-bottom-left">
+            <button class="button is-dark is-small" slot="trigger">
+              <i class="fa fa-caret-down"></i>
+            </button>
+
+            <b-dropdown-item has-link aria-role="menuitem">
+              <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}`">
+                <i class="fa fa-fw fa-eye"></i>
+                View
+              </router-link>
+            </b-dropdown-item>
+
+            <b-dropdown-item has-link aria-role="menuitem">
+              <router-link :to="`/<%= related_schema.identifier_plural %>/${model.id}/edit`">
+                <i class="far fa-fw fa-edit"></i>
+                Edit
+              </router-link>
+            </b-dropdown-item>
+          </b-dropdown>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -53,16 +76,19 @@ export default {
   },
   computed: {
     model () {
-      return this.$store.getters['<%= relation.schema.identifier %>/collection/items'].find(s => s.id %> === this.id)
+      return this.$store.getters['<%= relation.schema.identifier %>/collection/items']
+      .find(s => s.id %> === this.id)
     },
     <%_ related_schema.relations.forEach((rel, index) => { _%>
     <%_ if ([RELATION_TYPE_HAS_ONE, RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
     <%= rel.alias.identifier %> () {
-      return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
+      return this.$store.getters['<%= rel.schema.identifier %>/collection/items']
+      .find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(related_schema.relations, index) %>
     <%_ } else { _%>
     <%= rel.alias.identifier_plural %> () {
-      return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].filter(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
+      return this.$store.getters['<%= rel.schema.identifier %>/collection/items']
+      .filter(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(related_schema.relations, index) %>
     <%_ } _%>
     <%_ }) _%>
