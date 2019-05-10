@@ -72,7 +72,7 @@ export default {
     <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(relation.type)) { _%>
     collection () {
       return this.$store.getters['<%= relation.schema.identifier %>/collection/items']
-      .filter(s => s.<%= schema.identifier %>_id === this.<%= schema.identifier %>_id)
+      .filter(s => s.<%= relation.reverse_alias.identifier %>_id === this.<%= schema.identifier %>_id)
     },
     <%_ } _%>
     <%_ if ([RELATION_TYPE_HAS_MANY].includes(relation.type)) { _%>
