@@ -41,21 +41,13 @@ module.exports = {
         routeModules: routeModules.join(",\n    ")
       }
     });
-
-    // Iterates over each schema in the this.options.build.blueprint.schemas array
-    // TODO - encapsulate this in a call for forEachSchema
-    for (var i = blueprint.schemas.length - 1; i >= 0; i--) {
-      const schema = blueprint.schemas[i]
-
-      // Isolates API Actions metadata
-      // src/modules/module/router.js
-      await this.renderComponent({
-        src: 'module-router.js',
-        dest: 'src/modules/' + schema.identifier + '/router.js',
-        data: { schema }
-      })
-
-    }
-
+  },
+  async forEachSchema({ schema, configuration }) {
+    // src/modules/module/router.js
+    await this.renderComponent({
+      src: 'module-router.js',
+      dest: 'src/modules/' + schema.identifier + '/router.js',
+      data: { schema }
+    })
   }
 }
