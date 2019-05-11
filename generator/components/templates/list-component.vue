@@ -6,12 +6,12 @@
       <%_ schema.attributes.forEach((attr) => { _%>
       <%_ if (attr.help) { _%>
       <th>
+        <%= attr.label %>
         <b-tooltip
           label="<%= attr.help %>"
           position="is-right"
         >
-          <%= attr.label %>
-          <i class="fa fa-fw fa-question-circle-o"></i>
+          <i class="fa fa-fw fa-question-circle"></i>
         </b-tooltip>
       </th>
       <%_ } else { _%>

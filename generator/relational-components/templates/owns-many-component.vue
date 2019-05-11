@@ -8,7 +8,12 @@
       <%_ if (attr.help) { _%>
       <th>
         <%= attr.label %>
-        <i class="fa fa-fw fa-question-circle-o" v-b-tooltip.hover.bottom title="<%= attr.help %>" ></i>
+        <b-tooltip
+          label="<%= attr.help %>"
+          position="is-right"
+        >
+          <i class="fa fa-fw fa-question-circle"></i>
+        </b-tooltip>
       </th>
       <%_ } else { _%>
       <th><%= attr.label %></th>

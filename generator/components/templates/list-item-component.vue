@@ -10,8 +10,8 @@
     <%_ } else if (attr.datatype === DATATYPE_BOOLEAN) { _%>
     <td>
       <span>
-        <i class="fas fa-fw fa-check-square" v-if="model.<%=attr.identifier%>">TRUE</i>
-        <i class="fa fa-fw fa-square-o" v-if="!model.<%=attr.identifier%>">FALSE</i>
+        <i class="fas fa-fw fa-check-square" v-if="model.<%=attr.identifier%>"></i>
+        <i class="fa fa-fw fa-square-o" v-if="!model.<%=attr.identifier%>"></i>
       </span>
     </td>
     <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
