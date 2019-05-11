@@ -20,6 +20,7 @@
       <div id="navbarDropdown" class="navbar-menu">
         <div class="navbar-start">
 
+          <%_ if (headerLinks.length > 4) { _%>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link" href="#">
               Menu
@@ -37,6 +38,16 @@
 
             </div>
           </div>
+          <%_ } else { _%>
+          <%_ headerLinks.forEach((link) => { _%>
+          <router-link
+            to="<%= link.href %>"
+            class="navbar-item"
+          >
+            <%= link.text %>
+          </router-link>
+          <%_ }) _%>
+          <%_ } _%>
 
         </div>
       </div>
