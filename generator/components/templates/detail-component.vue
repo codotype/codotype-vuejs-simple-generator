@@ -13,12 +13,12 @@
 
         <div class="column">
           <div class="buttons is-right">
-            <router-link class='button is-warning' :to=" '/<%= schema.identifier_plural %>/' + model.id + '/edit' ">
+            <router-link class="button is-warning" :to="`/<%= schema.identifier_plural %>/${model.id}/edit`">
               <i class="far fa-fw fa-edit"></i>
               Edit
             </router-link>
 
-            <button class='button is-danger'>
+            <button class="button is-danger" @click="confirmDestroy()">
               <i class="far fa-fw fa-trash-alt"></i>
               Delete
             </button>
@@ -92,6 +92,21 @@ export default {
       return this.$store.getters['<%= rel.schema.identifier %>/collection/items'].find(m => m.id === this.model.<%= rel.alias.identifier + '_id' %>)
     }<%= helpers.trailingComma(schema.relations, index) %>
     <%_ }) _%>
+  },
+  methods: {
+    confirmDestroy () {
+      this.$dialog.confirm({
+        title: 'Deleting <%= schema.label %>',
+        message: 'Are you sure you want to <b>delete</b> this <%= schema.label %>? This action cannot be undone.',
+        confirmText: 'Delete <%= schema.label %>',
+        type: 'is-danger',
+        onConfirm: () => {
+          this.$router.go(-1)
+          this.$store.dispatch('<%= schema.identifier %>/collection/destroy', this.model.id)
+          this.$toast.open('<%= schema.label %> deleted!')
+        }
+      })
+    }
   }
 }
 </script>
