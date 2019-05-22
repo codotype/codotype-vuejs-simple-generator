@@ -19,6 +19,15 @@
           placeholder="<%= attr.label %>"
           v-model="model.<%=attr.identifier%>"
         />
+      <%_ } else if (attr.datatype === DATATYPE_TEXT) { _%>
+        <b-input
+          trim
+          id="<%= attr.identifier %>-input"
+          :required="<%= attr.required %>"
+          placeholder="<%= attr.label %>"
+          type="textarea"
+          v-model="model.<%=attr.identifier%>"
+        />
       <%_ } else if (attr.datatype === DATATYPE_STRING_ARRAY) { _%>
         <b-taginput
             ellipsis
