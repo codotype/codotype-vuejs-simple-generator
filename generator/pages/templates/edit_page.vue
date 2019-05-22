@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="container is-fluid">
+    <form class="container is-fluid" @submit="updateModel">
 
       <h2 class='title'><%= schema.label %> - Edit</h2>
 
@@ -11,7 +11,7 @@
       <hr>
 
       <div class="buttons is-right">
-        <button class="button is-primary" @click="updateModel()">
+        <button class="button is-primary" type="submit">
           <i class="fa fa-fw fa-plus"></i>
           Update <%= schema.label %>
         </button>
@@ -22,7 +22,7 @@
         </button>
       </div>
 
-    </div>
+    </form>
   </section>
 </template>
 
@@ -54,7 +54,8 @@ export default {
     return { model }
   },
   methods: {
-    updateModel () {
+    updateModel (e) {
+      e.preventDefault()
       this.$store.commit('<%= schema.identifier %>/collection/editModel', this.model)
       this.$store.dispatch('<%= schema.identifier %>/collection/update')
       this.$router.go(-1)

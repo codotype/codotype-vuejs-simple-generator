@@ -8,31 +8,32 @@
       <hr>
 
       <b-tabs type='is-toggle'>
-
         <%_ schema.relations.forEach((rel) => { _%>
         <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
+
         <b-tab-item label="<%= rel.alias.label %>">
           <Related<%= rel.alias.class_name %>Detail :id="model.<%= rel.alias.identifier %>_id"/>
         </b-tab-item>
         <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
+
         <b-tab-item label="<%= rel.alias.label_plural %>">
           <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
         </b-tab-item>
         <%_ } _%>
         <%_ }) _%>
-
+        <%_ /* */ _%>
+        <%_ /* */ _%>
+        <%_ /* */ _%>
         <%_ schema.reverse_relations.forEach((rel) => { _%>
-
         <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
+
         <b-tab-item label="<%= rel.alias.label_plural %>">
           <Related<%= rel.alias.class_name_plural %>List :<%= schema.identifier %>_id="model.id" />
         </b-tab-item>
         <%_ } _%>
         <%_ }) _%>
-
       </b-tabs>
       <%_ } _%>
-
     </div>
   </section>
 </template>

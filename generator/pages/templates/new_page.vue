@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="container is-fluid">
+    <form class="container is-fluid"  @submit="createModel">
 
       <h2 class='title'><%= schema.label %> - New</h2>
 
@@ -11,7 +11,7 @@
       <hr>
 
       <div class="buttons is-right">
-        <button class="button is-primary" @click="createModel()">
+        <button class="button is-primary" type="submit">
           <i class="fa fa-fw fa-plus"></i>
           Create <%= schema.label %>
         </button>
@@ -22,7 +22,7 @@
         </button>
       </div>
 
-    </div>
+    </form>
   </section>
 </template>
 
@@ -47,7 +47,8 @@ export default {
     return { model }
   },
   methods: {
-    createModel () {
+    createModel (e) {
+      e.preventDefault()
       this.$store.commit('<%= schema.identifier %>/collection/newModel', this.model)
       this.$store.dispatch('<%= schema.identifier %>/collection/create')
       this.$router.go(-1)
