@@ -11,5 +11,28 @@
   "version": "0.2.0",
   "official": true,
   "experience": "Beginner",
-  "option_groups": []
+  "option_groups": [
+    {
+      "id": "DEPLOYMENT_OPTION_GROUP",
+      "label": "Deployment",
+      "identifier": "deployment",
+      "description": "Configure the deployment options for your app",
+      "type": "OPTION_GROUP_TYPE_GLOBAL_OPTION",
+      "more_info_url": null,
+      "attributes": [
+        {
+          "label": "Deploy with Netlify",
+          "identifier": "netlify",
+          "type": "BOOLEAN",
+          "help": "Generate a <code>netlify.toml</code> file in the output directory for easy deployment to Netlify.",
+          "icon": {
+            "type": "ICON_TYPE_URL",
+            "value": "https://res.cloudinary.com/codotype/image/upload/f_png/v1552186408/tech-logos/netlify.svg"
+          },
+          "default_value": false,
+          "more_info_url": "https://netlify.com/"
+        }
+      ]
+    }
+  ]
 }
