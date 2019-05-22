@@ -48,8 +48,18 @@
           </router-link>
           <%_ }) _%>
           <%_ } _%>
-
         </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <router-link to="/settings" class="button is-primary">
+                Settings
+              </router-link>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
