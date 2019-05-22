@@ -9,5 +9,6 @@ module.exports = {
     await this.renderComponent({ src: 'public/index.html', dest: 'public/index.html' })
     await this.renderComponent({ src: 'src/App.vue', dest: 'src/App.vue' })
     await this.renderComponent({ src: 'src/modules/main/pages/home/index.vue', dest: 'src/modules/main/pages/home/index.vue' })
+    await this.renderComponent({ src: 'src/modules/main/pages/settings/index.vue', dest: 'src/modules/main/pages/settings/index.vue' })
   }
 }

@@ -10,6 +10,16 @@
             <%= meta.description %>
           </h2>
 
+          <!-- <p class="is-size-4">Features</p>
+          <ul>
+            <li>
+              Includes Vue Router + Vuex
+            </li>
+            <li>
+              Includes Vue Router + Vuex
+            </li>
+          </ul> -->
+
           <a
             href="https://bulma.io"
             target="_blank"
@@ -102,6 +112,9 @@
             </li>
             <li>
               <a href="https://vuex.vuejs.org" target="_blank">Vuex</a>
+            </li>
+            <li>
+              <a href="https://github.com/robinvdvleuten/vuex-persistedstate" target="_blank">Vuex Persisted State</a>
             </li>
             <li>
               <a href="https://buefy.org/" target="_blank">Bulma</a>

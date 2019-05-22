@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "buefy": "^0.7.3",
+    "downloadjs": "^1.4.7",
     "vue": "^2.6.6",
     "vue-meta": "^1.2.0",
     "vue-router": "^3.0.1",
