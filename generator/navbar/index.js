@@ -11,6 +11,9 @@ module.exports = {
       }
     })
 
+    // Ensures presence of src/components directory
+    this.ensureDir('src/components')
+
     await this.renderComponent({
       src: 'Navbar.vue',
       dest: 'src/components/Navbar.vue',
