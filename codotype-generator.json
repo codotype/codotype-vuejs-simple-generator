@@ -1,6 +1,6 @@
 {
   "id": "codotype-vuejs-simple-generator",
-  "label": "Vue.js Simple Frontend Generator",
+  "label": "Vue.js Simple Frontend",
   "icon": "https://res.cloudinary.com/codotype/image/upload/v1551192656/tech-logos/vue.png",
   "description": "Instantly generate simple frontend applications backed by a local data-store",
   "tech_tags": ["Vue", "Vuex", "Vue-Router", "Bulma", "Beufy", "JavaScript", "ES6"],
@@ -11,7 +11,22 @@
   "version": "0.2.0",
   "official": true,
   "experience": "Beginner",
-  "option_groups": [
+  "defaultSchemas": [],
+  "supportedDatatypes": [
+    "STRING",
+    "TEXT",
+    "INTEGER",
+    "BOOLEAN",
+    "TIME",
+    "DATE",
+    "DATETIME"
+  ],
+  "supportedRelations": [
+    "BELONGS_TO",
+    "HAS_ONE",
+    "HAS_MANY"
+  ],
+  "configuration_groups": [
     {
       "id": "DEPLOYMENT_OPTION_GROUP",
       "label": "Deployment",
