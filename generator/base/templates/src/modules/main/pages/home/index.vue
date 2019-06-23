@@ -4,21 +4,11 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            <%= meta.label %>
+            <%= blueprint.label %>
           </h1>
           <h2 class="subtitle">
             <%= meta.description %>
           </h2>
-
-          <!-- <p class="is-size-4">Features</p>
-          <ul>
-            <li>
-              Includes Vue Router + Vuex
-            </li>
-            <li>
-              Includes Vue Router + Vuex
-            </li>
-          </ul> -->
 
           <a
             href="https://bulma.io"
@@ -31,11 +21,11 @@
           <br>
 
           <a
-            class="button is-dark is-medium"
-            href="https://codotype.org"
+            class="button is-light is-medium"
+            href="https://codotype.io"
             target="_blank"
           >
-            <i class="fa fa-fw fa-cog"></i>
+            <img src="https://res.cloudinary.com/codotype/image/upload/v1560045005/tech-logos/codotype.png" alt="Codotype Logo" style="margin-right: 0.5rem; height: 1.5rem; width: 1.5rem; float: left;">
             Generated with Codotype
           </a>
 
