@@ -1,5 +1,6 @@
 import COLLECTION_MODULE from '@/store/lib/collectionModule'
-import { NEW_<%= schema.identifier.toUpperCase() %> } from './constants'
+
+const NEW_<%= schema.identifier.toUpperCase() %> = <%- newModel %>
 
 // <%= schema.label %> Vuex module definition
 export default {
