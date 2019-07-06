@@ -76,13 +76,6 @@
           placeholder="<%= attr.label %>"
           v-model="model.<%=attr.identifier%>"
         />
-      <%_ } else if (attr.datatype === DATATYPE_JSON) { _%>
-        <!-- <textarea
-          class="form-control"
-          placeholder="<%= attr.label %>"
-          @change="model.<%=attr.identifier%> = JSON.parse($event.target.value)">{{ JSON.stringify(model.<%=attr.identifier%>, null, 2) }}</textarea> -->
-          <p class="text-warning">TODO TODO TODO</p>
-          <small>IMPLEMENT JSON EDITING HERE</small>
       <%_ } _%>
       </b-field>
     </div>

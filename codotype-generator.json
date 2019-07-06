@@ -2,7 +2,7 @@
   "id": "codotype-vuejs-simple-generator",
   "label": "Vue.js Simple Frontend",
   "icon": "https://res.cloudinary.com/codotype/image/upload/v1551192656/tech-logos/vue.png",
-  "description": "Instantly generate simple frontend applications backed by a local data-store",
+  "description": "Generate a simple Vue.js CRUD frontend backed by localstorage. Great for learning and prototyping.",
   "tech_tags": ["Vue", "Vuex", "Vue-Router", "Bulma", "Beufy", "JavaScript", "ES6"],
   "type_tags": ["Frontend"],
   "self_configuring": false,
@@ -18,8 +18,8 @@
     "TEXT",
     "INTEGER",
     "BOOLEAN",
-    "TIME",
     "DATE",
+    "TIME",
     "DATETIME"
   ],
   "supportedRelations": [
