@@ -7,8 +7,22 @@
             <%= blueprint.label %>
           </h1>
           <h2 class="subtitle">
-            <%= meta.description %>
+            A simple Vue.js CRUD frontend backed by localstorage.
+            <br>
+            Great for learning and prototyping - hack it!
           </h2>
+
+          <a
+            class="button is-light is-medium"
+            href="https://codotype.io"
+            target="_blank"
+          >
+            <img src="https://res.cloudinary.com/codotype/image/upload/v1560045005/tech-logos/codotype.png" alt="Codotype Logo" style="margin-right: 0.5rem; height: 1.5rem; width: 1.5rem; float: left;">
+            Generated with Codotype
+          </a>
+
+          <br>
+          <br>
 
           <a
             href="https://bulma.io"
@@ -20,14 +34,79 @@
           <br>
           <br>
 
-          <a
-            class="button is-light is-medium"
-            href="https://codotype.io"
-            target="_blank"
-          >
-            <img src="https://res.cloudinary.com/codotype/image/upload/v1560045005/tech-logos/codotype.png" alt="Codotype Logo" style="margin-right: 0.5rem; height: 1.5rem; width: 1.5rem; float: left;">
-            Generated with Codotype
-          </a>
+          <b-field grouped group-multiline position="is-centered">
+            <div class="control">
+              <a href="https://vuejs.org/" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">vue</b-tag>
+                  <b-tag type="is-success">2.5.2</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://router.vuejs.org" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">vue-router</b-tag>
+                  <b-tag type="is-success">3.0.1</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://vuex.vuejs.org" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">vuex</b-tag>
+                  <b-tag type="is-success">3.0.0</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://github.com/robinvdvleuten/vuex-persistedstate" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">vuex-persistedstate</b-tag>
+                  <b-tag type="is-success">2.5.4</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://buefy.org/" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">buefy</b-tag>
+                  <b-tag type="is-success">0.6.1</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://bulma.io/" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">bulma</b-tag>
+                  <b-tag type="is-info">0.7.4</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://fontawesome.com/icons" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">font-awesome</b-tag>
+                  <b-tag type="is-info">5.3.1</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+
+            <div class="control">
+              <a href="https://webpack.js.org/" target="_blank">
+                <b-taglist attached>
+                  <b-tag type="is-dark">webpack</b-tag>
+                  <b-tag type="is-info">3.8.1</b-tag>
+                </b-taglist>
+              </a>
+            </div>
+          </b-field>
 
         </div>
       </div>
@@ -36,86 +115,32 @@
       <div class="container">
         <div class="content">
 
-          <h1 class="title">Getting Started</h1>
-
-          <b-field grouped group-multiline>
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">vue</b-tag>
-                <b-tag type="is-success">2.5.2</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">vue-router</b-tag>
-                <b-tag type="is-success">3.0.1</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">vuex</b-tag>
-                <b-tag type="is-success">3.0.0</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">bulma</b-tag>
-                <b-tag type="is-primary">0.7.4</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">buefy</b-tag>
-                <b-tag type="is-primary">0.6.1</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">font-awesome</b-tag>
-                <b-tag type="is-info">5.3.1</b-tag>
-              </b-taglist>
-            </div>
-
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">webpack</b-tag>
-                <b-tag type="is-info">3.8.1</b-tag>
-              </b-taglist>
-            </div>
-          </b-field>
+          <h1 class="title">Data Overview</h1>
+          <p class="is-size-4">
+            Here's some space to do something interesting with all that data you're collecting
+            <i class="far fa-fw fa-lg fa-laugh" />
+          </p>
+          <p class="is-size-6">
+            <i class="far fa-fw fa-lightbulb" />
+            Check out the <router-link to="/settings">Settings</router-link> page to <b>Import</b>, <b>Export</b>, and <b>Flush</b> data.
+          </p>
 
           <hr>
 
-          <p class="is-size-4">This starter codebase was built with the following:</p>
+          <div class="columns is-multiline is-mobile">
+            <%_ blueprint.schemas.forEach((schema, index) => { _%>
+              <div class="column is-one-quarter">
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <p class="title">{{ <%= schema.identifier_plural %>.length }}</p>
+                        <p class="subtitle"><%= schema.label_plural %></p>
+                    </article>
+                </div>
+              </div>
 
-          <ul>
-            <li>
-              <a href="https://vuejs.org/" target="_blank">Vue.js</a>
-            </li>
-            <li>
-              <a href="https://router.vuejs.org" target="_blank">Vue Router</a>
-            </li>
-            <li>
-              <a href="https://vuex.vuejs.org" target="_blank">Vuex</a>
-            </li>
-            <li>
-              <a href="https://github.com/robinvdvleuten/vuex-persistedstate" target="_blank">Vuex Persisted State</a>
-            </li>
-            <li>
-              <a href="https://buefy.org/" target="_blank">Bulma</a>
-            </li>
-            <li>
-              <a href="https://buefy.org/" target="_blank">Buefy</a>
-            </li>
-            <li>
-              <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>
-            </li>
-          </ul>
+            <%_ }) _%>
+          </div>
+
         </div>
       </div>
     </div>
@@ -125,6 +150,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HomeFooter from './HomeFooter'
 
 export default {
@@ -134,6 +160,11 @@ export default {
   },
   components: {
     HomeFooter
-  }
+  },
+  computed: mapGetters({
+  <%_ blueprint.schemas.forEach((schema, index) => { _%>
+    <%= schema.identifier_plural %>: '<%= schema.identifier %>/collection/items',
+  <%_ }) _%>
+  })
 }
 </script>

@@ -10,7 +10,7 @@
             </p>
 
             <p class="is-size-6">
-              Take a look at some great <a href="https://dansup.github.io/bulma-templates/" target="_blank">Free Bulma Templates</a> to help jump-start your next project.
+              Take a look at some great <a href="https://bulmatemplates.github.io/bulma-templates/" target="_blank">Free Bulma Templates</a> to help jump-start your next project.
             </p>
 
             <p class="is-size-6">
