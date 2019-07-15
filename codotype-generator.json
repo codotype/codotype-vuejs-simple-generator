@@ -11,7 +11,102 @@
   "version": "0.2.0",
   "official": true,
   "experience": "Beginner",
-  "defaultSchemas": [],
+  "defaultSchemas": [
+    {
+      "id": "USER_SCHEMA_ID",
+      "order": 0,
+      "locked": false,
+      "source": "GENERATOR",
+      "label": "User",
+      "label_plural": "Users",
+      "identifier": "user",
+      "identifier_plural": "users",
+      "class_name": "User",
+      "class_name_plural": "Users",
+      "attributes": [
+        {
+          "id": "0.314932304236613",
+          "order": 0,
+          "label": "Username",
+          "identifier": "username",
+          "help": "",
+          "required": true,
+          "unique": true,
+          "datatype": "STRING",
+          "default_value": null,
+          "datatypeOptions": {}
+        },
+        {
+          "id": "USER_EMAIL_ATTRIBUTE",
+          "order": 1,
+          "label": "E-Mail",
+          "identifier": "email",
+          "help": "The E-Mail address associated with this User",
+          "required": true,
+          "unique": true,
+          "datatype": "STRING",
+          "default_value": "",
+          "datatypeOptions": {},
+          "locked": true
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "0.26006061859298235",
+      "order": 0,
+      "locked": false,
+      "source": "GENERATOR",
+      "label": "Task",
+      "label_plural": "Tasks",
+      "identifier": "task",
+      "identifier_plural": "tasks",
+      "class_name": "Task",
+      "class_name_plural": "Tasks",
+      "attributes": [
+        {
+          "id": "0.9044443077054265",
+          "order": 0,
+          "label": "Label",
+          "identifier": "label",
+          "help": "",
+          "required": true,
+          "unique": false,
+          "datatype": "STRING",
+          "default_value": null,
+          "datatypeOptions": {}
+        },
+        {
+          "id": "0.7416137572159311",
+          "order": 2,
+          "label": "Done",
+          "identifier": "done",
+          "help": "",
+          "required": false,
+          "unique": false,
+          "datatype": "BOOLEAN",
+          "default_value": null,
+          "datatypeOptions": {}
+        }
+      ],
+      "relations": [
+        {
+          "id": "0.9585596630909203",
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "schema_id": "0.26006061859298235",
+          "related_schema_id": "USER_SCHEMA_ID",
+          "reverse_relation_id": "",
+          "as": "Assignee",
+          "reverse_as": ""
+        }
+      ],
+      "reverse_relations": [],
+      "camel_case": "task",
+      "camel_case_plural": "tasks"
+    }
+  ],
   "defaultConfiguration": {},
   "supportedDatatypes": [
     "STRING",
