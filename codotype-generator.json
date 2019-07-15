@@ -13,46 +13,6 @@
   "experience": "Beginner",
   "defaultSchemas": [
     {
-      "id": "USER_SCHEMA_ID",
-      "order": 0,
-      "locked": false,
-      "source": "GENERATOR",
-      "label": "User",
-      "label_plural": "Users",
-      "identifier": "user",
-      "identifier_plural": "users",
-      "class_name": "User",
-      "class_name_plural": "Users",
-      "attributes": [
-        {
-          "id": "0.314932304236613",
-          "order": 0,
-          "label": "Username",
-          "identifier": "username",
-          "help": "",
-          "required": true,
-          "unique": true,
-          "datatype": "STRING",
-          "default_value": null,
-          "datatypeOptions": {}
-        },
-        {
-          "id": "USER_EMAIL_ATTRIBUTE",
-          "order": 1,
-          "label": "E-Mail",
-          "identifier": "email",
-          "help": "The E-Mail address associated with this User",
-          "required": true,
-          "unique": true,
-          "datatype": "STRING",
-          "default_value": "",
-          "datatypeOptions": {},
-          "locked": true
-        }
-      ],
-      "relations": []
-    },
-    {
       "id": "0.26006061859298235",
       "order": 0,
       "locked": false,
@@ -105,6 +65,46 @@
       "reverse_relations": [],
       "camel_case": "task",
       "camel_case_plural": "tasks"
+    },
+    {
+      "id": "USER_SCHEMA_ID",
+      "order": 0,
+      "locked": false,
+      "source": "GENERATOR",
+      "label": "User",
+      "label_plural": "Users",
+      "identifier": "user",
+      "identifier_plural": "users",
+      "class_name": "User",
+      "class_name_plural": "Users",
+      "attributes": [
+        {
+          "id": "0.314932304236613",
+          "order": 0,
+          "label": "Username",
+          "identifier": "username",
+          "help": "",
+          "required": true,
+          "unique": true,
+          "datatype": "STRING",
+          "default_value": null,
+          "datatypeOptions": {}
+        },
+        {
+          "id": "USER_EMAIL_ATTRIBUTE",
+          "order": 1,
+          "label": "E-Mail",
+          "identifier": "email",
+          "help": "The E-Mail address associated with this User",
+          "required": true,
+          "unique": true,
+          "datatype": "STRING",
+          "default_value": "",
+          "datatypeOptions": {},
+          "locked": true
+        }
+      ],
+      "relations": []
     }
   ],
   "defaultConfiguration": {},
