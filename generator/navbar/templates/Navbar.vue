@@ -1,6 +1,6 @@
 <template>
   <header class="navbar is-bold">
-    <div class="container">
+    <div class="container is-fluid">
 
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
