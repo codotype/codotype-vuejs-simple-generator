@@ -11,7 +11,7 @@
         <%_ schema.relations.forEach((rel) => { _%>
         <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
 
-        <b-tab-item label="<%= rel.alias.label %>">
+        <b-tab-item label="<%= rel.alias.label %>" v-if="model.<%= rel.alias.identifier %>_id">
           <Related<%= rel.alias.class_name %>Detail :id="model.<%= rel.alias.identifier %>_id"/>
         </b-tab-item>
         <%_ } else if ([RELATION_TYPE_HAS_MANY].includes(rel.type)) { _%>
@@ -41,9 +41,6 @@
 <!-- // // // //  -->
 
 <script>
-// TODO - implement reverse relations
-// TODO - implement reverse relations
-// TODO - implement reverse relations
 import <%= schema.class_name %>Detail from '@/modules/<%= schema.identifier %>/components/<%= schema.class_name %>Detail'
 <%_ schema.relations.forEach((rel) => { _%>
 <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
@@ -53,8 +50,6 @@ import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.
 <%_ } _%>
 <%_ }) _%>
 
-// TODO - implement reverse relations
-// TODO - implement reverse relations
 <%_ schema.reverse_relations.forEach((rel) => { _%>
 <%_ if ([RELATION_TYPE_BELONGS_TO].includes(rel.type)) { _%>
 import Related<%= rel.alias.class_name_plural %>List from '@/modules/<%= schema.identifier %>/components/Related<%= rel.alias.class_name_plural %>List'
