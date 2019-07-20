@@ -40,8 +40,10 @@
         <td></td>
         <%_ } _%>
         <%_ }) _%>
-        <%_ schema.relations.forEach((rel) => { _%>
-        <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_MANY, RELATION_TYPE_HAS_ONE].includes(rel.type)) { _%>
+        <%_ schema.relations.forEach((rel, indx) => { _%>
+        <%_ if (indx === 0 && schema.attributes.length === 0) { _%>
+        <td>No <%= schema.label_plural %> Available</td>
+        <%_ } else { _%>
         <td></td>
         <%_ } _%>
         <%_ }) _%>

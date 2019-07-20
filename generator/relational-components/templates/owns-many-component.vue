@@ -33,15 +33,17 @@
 
       <!-- Empty Table Row -->
       <tr class='table-warning' v-if="!collection[0]">
-        <%_ related_schema.attributes.forEach((attr, index) => { _%>
-        <%_ if (index === 0) { _%>
+        <%_ related_schema.attributes.forEach((attr, indx) => { _%>
+        <%_ if (indx === 0) { _%>
         <td>No <%= related_schema.label_plural %> Available</td>
         <%_ } else { _%>
         <td></td>
         <%_ } _%>
         <%_ }) _%>
-        <%_ related_schema.relations.forEach((r) => { _%>
-        <%_ if ([RELATION_TYPE_BELONGS_TO, RELATION_TYPE_HAS_ONE].includes(r.type)) { _%>
+        <%_ related_schema.relations.forEach((rel, indx) => { _%>
+        <%_ if (indx === 0 && related_schema.attributes.length === 0) { _%>
+        <td>No <%= related_schema.label_plural %> Available</td>
+        <%_ } else { _%>
         <td></td>
         <%_ } _%>
         <%_ }) _%>
@@ -56,13 +58,8 @@
 </template>
 
 <script>
-// TODO - this component must be split up for relations and reverse relations
-// TODO - this component must be split up for relations and reverse relations
-// TODO - this component must be split up for relations and reverse relations
-// TODO - this component must be split up for relations and reverse relations
-// TODO - this component must be split up for relations and reverse relations
-// TODO - this component must be split up for relations and reverse relations
 import Related<%= relation.alias.class_name %>ListItem from './Related<%= relation.alias.class_name %>ListItem'
+
 export default {
   props: {
     <%= schema.identifier %>_id: {
