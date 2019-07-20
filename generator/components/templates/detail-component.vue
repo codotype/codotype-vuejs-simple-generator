@@ -101,7 +101,7 @@ export default {
         confirmText: 'Delete <%= schema.label %>',
         type: 'is-danger',
         onConfirm: () => {
-          this.$router.go(-1)
+          this.$router.replace('/<%= schema.identifier_plural %>')
           this.$store.dispatch('<%= schema.identifier %>/collection/destroy', this.model.id)
           this.$toast.open('<%= schema.label %> deleted!')
         }
