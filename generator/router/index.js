@@ -20,14 +20,12 @@ module.exports = {
       { class_name: 'Main', identifier: 'main' },
     ]
 
-    // TODO - these should all be opt-in
     defaultModules.forEach((m) => {
       buildImport(m)
       buildModule(m)
     })
 
     // src/store/index.js
-    // TODO - abstract into separate generator class definition
     blueprint.schemas.forEach((s) => {
       buildImport(s)
       buildModule(s)

@@ -9,7 +9,6 @@ module.exports = {
       storeModules.push(s.identifier)
     })
 
-    // TODO - this should be moved into base generator, methinks
     await this.renderComponent({
       src: 'index.js',
       dest: 'src/store/index.js',
