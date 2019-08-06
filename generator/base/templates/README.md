@@ -2,7 +2,7 @@
 
 ### A simple Vue.js CRUD frontend backed by localstorage. Great for learning and prototyping - hack it!
 
-Built with [Vue.js](https://vuejs.org/), [Vue Router](https://router.vuejs.org/), [Vuex](https://vuex.vuejs.org/), [Bulma](https://buefy.org/), & [Buefy](https://buefy.org/). Powered by [Codotype](https://codotype.io).
+Built with [Vue.js](https://vuejs.org/), [Vue Router](https://router.vuejs.org/), [Vuex](https://vuex.vuejs.org/), [Bulma](https://buefy.org/), & [Buefy](https://buefy.org/). Generated with [Codotype](https://codotype.io).
 
 
 ## Vuex + Persisted State
